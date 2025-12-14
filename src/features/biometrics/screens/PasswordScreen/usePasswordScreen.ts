@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
 import { Animated, PanResponder, PanResponderInstance } from 'react-native';
-import ReactNativeBiometrics, { BiometryTypes } from 'react-native-biometrics';
 
 import { useAlert } from '@components/Alert/AlertService';
 import { screenHeight } from '@constants/screenDimensions';
@@ -9,8 +8,7 @@ import {
   BiometricStackName,
   PasswordScreenNavigationProp,
 } from '@navigation/BiometricNavigator/types';
-
-const threshold = screenHeight * 0.15;
+import { isSensorAvailable, simplePrompt } from '@sbaiahmed1/react-native-biometrics';
 
 const springConfig = {
   toValue: 0,
@@ -29,6 +27,7 @@ export const usePasswordScreen = ({ navigation }: PasswordScreenNavigationProp) 
   const { alert } = useAlert();
 
   const translateY = useRef(new Animated.Value(0));
+  const threshold = screenHeight * 0.15;
 
   const isBiometricAvailable =
     biometryType !== '' && biometryType !== 'Not Available' && biometryType !== 'Error';
@@ -39,8 +38,7 @@ export const usePasswordScreen = ({ navigation }: PasswordScreenNavigationProp) 
 
   const checkBiometrySupport = async () => {
     try {
-      const rnBiometrics = new ReactNativeBiometrics({ allowDeviceCredentials: true });
-      const { available, biometryType: availableType } = await rnBiometrics.isSensorAvailable();
+      const { available, biometryType: availableType } = await isSensorAvailable();
       if (available) {
         setBiometryType(availableType || 'Biometric');
       } else {
@@ -62,11 +60,7 @@ export const usePasswordScreen = ({ navigation }: PasswordScreenNavigationProp) 
     }
 
     try {
-      const rnBiometrics = new ReactNativeBiometrics({ allowDeviceCredentials: true });
-      const { success } = await rnBiometrics.simplePrompt({
-        promptMessage: 'Authenticate to continue',
-        cancelButtonText: 'Cancel',
-      });
+      const success = await simplePrompt('Authenticate');
 
       if (success) {
         navigation.replace(BiometricStackName.Home);
@@ -125,27 +119,14 @@ export const usePasswordScreen = ({ navigation }: PasswordScreenNavigationProp) 
     setCode(prev => (prev.length ? prev.slice(0, -1) : prev));
   };
 
-  const getBiometryDisplayName = () => {
-    switch (biometryType) {
-      case BiometryTypes.TouchID:
-        return 'Touch ID';
-      case BiometryTypes.FaceID:
-        return 'Face ID';
-      case BiometryTypes.Biometrics:
-        return 'Biometric';
-      default:
-        return biometryType;
-    }
-  };
-
   return {
     code,
     error,
     translateY,
+    biometryType,
     isBiometricAvailable,
     panResponder,
     onPressDigit,
     onDelete,
-    getBiometryDisplayName,
   };
 };

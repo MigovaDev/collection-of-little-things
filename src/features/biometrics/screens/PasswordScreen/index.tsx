@@ -18,9 +18,9 @@ export const PasswordScreen = (props: PasswordScreenNavigationProp) => {
     translateY,
     isBiometricAvailable,
     panResponder,
+    biometryType,
     onPressDigit,
     onDelete,
-    getBiometryDisplayName,
   } = usePasswordScreen(props);
 
   return (
@@ -32,7 +32,7 @@ export const PasswordScreen = (props: PasswordScreenNavigationProp) => {
         <View style={styles.container}>
           <View style={styles.header}>
             <Text style={styles.headerTitle}>
-              {isBiometricAvailable && `Swipe up for ${getBiometryDisplayName()} or \n `}Enter
+              {isBiometricAvailable && `Swipe up for ${biometryType} or \n `}Enter
               Passcode
             </Text>
             <PasscodeInput codeLength={code.length} error={error} />

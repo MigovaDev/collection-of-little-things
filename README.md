@@ -1,98 +1,135 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Collection of Little Things
 
-# Getting Started
+Pet-проект для демонстрации различных интересных решений и функционала в React Native приложении.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## 📱 О проекте
 
-## Step 1: Start Metro
+Это мобильное приложение на React Native, которое демонстрирует реализацию биометрической аутентификации с альтернативным способом входа через PIN-код. Проект создан для портфолио и показывает различные техники разработки, архитектурные решения и лучшие практики.
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## ✨ Что можно увидеть в проекте
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+### 🔐 Биометрическая аутентификация
+- Поддержка Touch ID и Face ID
+- Альтернативный вход через PIN-код (4 цифры)
+- Swipe-up жесты для быстрой биометрической аутентификации
+- Анимированные переходы и интерактивные элементы
 
-```sh
-# Using npm
-npm start
+### 🎨 UI/UX решения
+- Темная тема с продуманной цветовой палитрой
+- Кастомные компоненты (Button, Alert, Keypad, PasscodeInput)
+- Плавные анимации и переходы
+- Адаптивный дизайн с поддержкой Safe Area
 
-# OR using Yarn
-yarn start
+### 🏗️ Архитектура и код
+- **Feature-based структура** - код организован по функциональным модулям
+- **Разделение логики и представления** - использование custom hooks (usePasswordScreen)
+- **Переиспользуемые компоненты** - модульная архитектура
+- **TypeScript** - полная типизация для надежности кода
+- **Алиасы импортов** - чистые и читаемые пути (`@components`, `@features`, `@navigation`)
+
+### 🛠️ Инструменты разработки
+- **ESLint + Prettier** - автоматическое форматирование и проверка кода
+- **Husky + lint-staged** - pre-commit хуки для качества кода
+- **Централизованная система цветов** - единый источник цветов приложения
+- **Константы для размеров экрана** - адаптивность под разные устройства
+
+## 📸 Скриншоты
+
+> **Примечание:** Добавьте скриншоты вашего приложения в эту секцию. Рекомендуется разместить их в папке `docs/screenshots/` и добавить ссылки ниже.
+
+### Biometric
+![Biometric feature](docs/screenshots/biometric.gif)
+
+## 🚀 Как запустить проект
+
+### Требования
+
+- Node.js >= 18
+- Yarn 3.6.4
+- React Native CLI
+- Для iOS: Xcode и CocoaPods
+- Для Android: Android Studio и Android SDK
+
+### Установка зависимостей
+
+```bash
+# Установка зависимостей
+yarn install
 ```
 
-## Step 2: Build and run your app
+### Запуск на iOS
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
+```bash
+# Установка CocoaPods зависимостей (только первый раз)
+cd ios
 bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
 bundle exec pod install
-```
+cd ..
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
+# Запуск приложения
 yarn ios
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+### Запуск на Android
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+```bash
+# Убедитесь, что эмулятор Android запущен или устройство подключено
+yarn android
+```
 
-## Step 3: Modify your app
+### Запуск Metro Bundler
 
-Now that you have successfully run the app, let's make changes!
+```bash
+# Запуск Metro bundler отдельно
+yarn start
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+# С очисткой кэша (если возникают проблемы)
+yarn start --reset-cache
+```
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+## 📦 Используемые технологии
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+- **React Native 0.80.2** - фреймворк для мобильной разработки
+- **React Navigation 7** - навигация между экранами
+- **TypeScript** - типизированный JavaScript
+- **react-native-biometrics** - биометрическая аутентификация
+- **react-native-gesture-handler** - обработка жестов
+- **ESLint + Prettier** - линтинг и форматирование
+- **Husky** - Git hooks
 
-## Congratulations! :tada:
+## 📁 Структура проекта
 
-You've successfully run and modified your React Native App. :partying_face:
+```
+src/
+├── components/          # Переиспользуемые компоненты
+│   ├── Alert/         # Кастомный Alert компонент
+│   └── Button/        # Универсальная кнопка
+├── constants/         # Константы приложения
+│   ├── colors.ts      # Цветовая палитра
+│   └── screenDimensions.ts  # Размеры экрана
+├── features/          # Функциональные модули
+│   ├── biometrics/    # Модуль биометрической аутентификации
+│   └── main/          # Главный модуль
+└── navigation/        # Навигация приложения
+```
 
-### Now what?
+## 🎯 Особенности реализации
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+- **Custom Hooks** - бизнес-логика вынесена в отдельные хуки
+- **Component Composition** - компоненты разбиты на мелкие переиспользуемые части
+- **Type Safety** - полная типизация навигации и пропсов
+- **Code Quality** - автоматические проверки перед коммитом
+- **Clean Code** - следование принципам чистого кода
 
-# Troubleshooting
+## 📝 Скрипты
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+```bash
+yarn start      # Запуск Metro bundler
+yarn android    # Запуск на Android
+yarn ios        # Запуск на iOS
+yarn lint       # Проверка кода ESLint
+```
 
-# Learn More
+## 📄 Лицензия
 
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
-# collection-of-little-things
+Это pet-проект для портфолио.

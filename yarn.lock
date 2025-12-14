@@ -2468,6 +2468,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sbaiahmed1/react-native-biometrics@npm:^0.9.2":
+  version: 0.9.2
+  resolution: "@sbaiahmed1/react-native-biometrics@npm:0.9.2"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: 6fe6427ec822d5a94ddda51ffe435e6c022869df493a2a31e7a9fc5d0c6d7bbc29d00bcc07dbb532809e0f164dad6ca5f7f0c90b5882c1ecdaf772a9a354972f
+  languageName: node
+  linkType: hard
+
 "@sideway/address@npm:^4.1.5":
   version: 4.1.5
   resolution: "@sideway/address@npm:4.1.5"
@@ -3841,6 +3851,7 @@ __metadata:
     "@react-native/typescript-config": 0.80.2
     "@react-navigation/native": ^7.1.18
     "@react-navigation/stack": ^7.4.10
+    "@sbaiahmed1/react-native-biometrics": ^0.9.2
     "@types/jest": ^29.5.13
     "@types/react": ^19.1.0
     "@types/react-test-renderer": ^19.1.0
@@ -3856,7 +3867,6 @@ __metadata:
     prettier: 2.8.8
     react: 19.1.0
     react-native: 0.80.2
-    react-native-biometrics: ^3.0.1
     react-native-gesture-handler: ^2.28.0
     react-native-safe-area-context: ^5.6.1
     react-test-renderer: 19.1.0
@@ -8193,15 +8203,6 @@ __metadata:
   version: 19.2.0
   resolution: "react-is@npm:19.2.0"
   checksum: 9a23e1c2d0bbc13b383bc59a05f54e6eb95dd87e01aec8aa92a88618364b7b0ee8a5b057ad813cf61e2f7ae7d24503b624706acb609d07c54754e5ad2c522568
-  languageName: node
-  linkType: hard
-
-"react-native-biometrics@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "react-native-biometrics@npm:3.0.1"
-  peerDependencies:
-    react-native: ">=0.60.0"
-  checksum: 3864fea4bbf3dee1d360daf048e4f9980083c4e919e95082a5e4646e3b22475bb2b592cae18cccd7fb55b50498dca29e5346cf98d958646cbfc26fed5654bc53
   languageName: node
   linkType: hard
 
