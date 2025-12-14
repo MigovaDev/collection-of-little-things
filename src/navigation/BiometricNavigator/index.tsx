@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { createStackNavigator } from '@react-navigation/stack';
+import {createStackNavigator, StackNavigationOptions} from '@react-navigation/stack';
 
+import { colors } from '../../constants/colors';
 import { HelloScreen } from '../../features/biometrics/screens/HelloScreen';
 import { HomeScreen } from '../../features/biometrics/screens/HomeScreen';
 
@@ -9,7 +10,7 @@ import { BiometricStackName,BiometricStackParamList } from './types.ts';
 
 const Stack = createStackNavigator<BiometricStackParamList>();
 
-const options = { headerShown: false };
+const options: StackNavigationOptions = { headerShown: true, headerTitle: '', headerTintColor: colors.text.primary, headerStyle: {backgroundColor:  colors.background.dark}, cardStyle: {backgroundColor:  colors.background.dark} };
 
 export const BiometricNavigator = () => {
   return (

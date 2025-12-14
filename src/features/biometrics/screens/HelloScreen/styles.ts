@@ -1,22 +1,21 @@
 import { StyleSheet } from 'react-native';
 
+import { colors } from '../../../../constants/colors';
+
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0d0d0d',
   },
   content: {
-    flex: 1,
+    flex: 0.8,
     paddingHorizontal: 24,
-    paddingTop: 60,
-    paddingBottom: 50,
   },
   header: {
     alignItems: 'center',
     marginBottom: 24,
   },
   headerTitle: {
-    color: '#fff',
+    color: colors.text.primary,
     fontSize: 18,
     textAlign: 'center',
     lineHeight: 24,
@@ -31,10 +30,10 @@ export const styles = StyleSheet.create({
     width: 10,
     height: 10,
     borderRadius: 5,
-    backgroundColor: 'rgba(255,255,255,0.25)',
+    backgroundColor: colors.ui.dot.inactive,
   },
   dotFilled: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.ui.dot.active,
   },
   keypad: {
     flexDirection: 'row',
@@ -48,33 +47,32 @@ export const styles = StyleSheet.create({
     width: 80,
     height: 80,
     borderRadius: 999,
-    backgroundColor: 'rgba(255,255,255,0.12)',
+    backgroundColor: colors.button.background,
     alignItems: 'center',
     justifyContent: 'center',
   },
   keyNumber: {
-    color: '#fff',
+    color: colors.text.primary,
     fontSize: 28,
     fontWeight: '700',
   },
   keyLetters: {
-    color: 'rgba(255,255,255,0.7)',
+    color: colors.text.tertiary,
     fontSize: 10,
     marginTop: 2,
     letterSpacing: 1,
   },
   bottomRow: {
-    flex: 1,
     flexDirection: 'row',
     alignItems: 'flex-end',
     justifyContent: 'space-between',
   },
   bottomAction: {
-    color: 'rgba(255,255,255,0.9)',
+    color: colors.text.secondary,
     fontSize: 14,
   },
   errorText: {
-    color: '#ff6b6b',
+    color: colors.text.error,
     fontSize: 14,
     textAlign: 'center',
     marginTop: 8,

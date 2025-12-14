@@ -142,6 +142,7 @@ export const HelloScreen = ({ navigation }: HelloScreenNavigationProp) => {
   return (
     <SafeAreaView style={styles.container}>
       <Animated.View style={[styles.content,{ transform: [{ translateY: translateY.current }]} ]} {...panResponder.panHandlers}>
+        <View style={styles.container}>
         <View style={styles.header}>
           <Text style={styles.headerTitle}>{isBiometricAvailable && `Swipe up for ${getBiometryDisplayName()} or \n `}Enter Passcode</Text>
           <View style={styles.dotsRow}>
@@ -164,14 +165,14 @@ export const HelloScreen = ({ navigation }: HelloScreenNavigationProp) => {
             </TouchableOpacity>
           ))}
         </View>
-
+      </View>
         <View style={styles.bottomRow}>
-        <TouchableOpacity onPress={onDelete}>
+         <TouchableOpacity onPress={onDelete}>
             <Text style={styles.bottomAction}>SOS</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={onDelete}>
+         </TouchableOpacity>
+         <TouchableOpacity onPress={onDelete}>
             <Text style={styles.bottomAction}>Delete</Text>
-        </TouchableOpacity>
+         </TouchableOpacity>
         </View>
       </Animated.View>
     </SafeAreaView>

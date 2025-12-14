@@ -1,17 +1,16 @@
 import { StyleSheet } from 'react-native';
 
+import { colors } from '../../../../constants/colors';
+
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0d0d0d',
   },
   content: {
-    flex: 1,
+    flex: 0.8,
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 24,
-    paddingTop: 60,
-    paddingBottom: 50,
   },
   successContainer: {
     alignItems: 'center',
@@ -24,13 +23,13 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: 32,
     fontWeight: 'bold',
-    color: '#4caf50',
+    color: colors.text.success,
     marginBottom: 16,
     textAlign: 'center',
   },
   subtitle: {
     fontSize: 18,
-    color: '#fff',
+    color: colors.text.primary,
     textAlign: 'center',
     marginBottom: 16,
     lineHeight: 24,
@@ -39,7 +38,7 @@ export const styles = StyleSheet.create({
   },
   description: {
     fontSize: 16,
-    color: 'rgba(255,255,255,0.7)',
+    color: colors.text.tertiary,
     textAlign: 'center',
     lineHeight: 22,
     paddingHorizontal: 10,
@@ -49,17 +48,17 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   logoutButton: {
-    backgroundColor: 'rgba(255,255,255,0.12)',
+    backgroundColor: colors.button.background,
     paddingVertical: 16,
     paddingHorizontal: 32,
     borderRadius: 8,
     minWidth: 150,
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.2)',
+    borderColor: colors.button.border,
   },
   logoutButtonText: {
-    color: '#fff',
+    color: colors.button.text,
     fontSize: 16,
     fontWeight: '600',
   },

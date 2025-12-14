@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native';
 
+import { colors } from '../../../../constants/colors';
+
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0d0d0d',
   },
   content: {
     flex: 1,
@@ -12,20 +13,20 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 24,
   },
   title: {
-    color: '#fff',
+    color: colors.text.primary,
     fontSize: 22,
     marginBottom: 24,
   },
   button: {
-    backgroundColor: 'rgba(255,255,255,0.12)',
+    backgroundColor: colors.button.background,
     paddingVertical: 16,
     paddingHorizontal: 24,
     borderRadius: 8,
     borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.2)',
+    borderColor: colors.button.border,
   },
   buttonText: {
-    color: '#fff',
+    color: colors.button.text,
     fontSize: 16,
     fontWeight: '600',
   },
