@@ -1,8 +1,9 @@
 import React from 'react';
+
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-import { RootNavigator } from './src/navigation/RootNavigator';
 import { AlertProvider } from './src/components/Alert/AlertService';
+import { RootNavigator } from './src/navigation/RootNavigator';
 
 function App() {
   return (
