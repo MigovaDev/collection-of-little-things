@@ -3,12 +3,12 @@ import { useEffect, useRef, useState } from 'react';
 import { Animated, PanResponder, PanResponderInstance } from 'react-native';
 import ReactNativeBiometrics, { BiometryTypes } from 'react-native-biometrics';
 
-import { useAlert } from '../../../../components/Alert/AlertService.tsx';
-import {screenHeight} from '../../../../constants/screenDimensions.ts';
+import { useAlert } from '@components/Alert/AlertService';
+import { screenHeight } from '@constants/screenDimensions';
 import {
   BiometricStackName,
   PasswordScreenNavigationProp,
-} from '../../../../navigation/BiometricNavigator/types.ts';
+} from '@navigation/BiometricNavigator/types';
 
 const threshold = screenHeight * 0.15;
 

@@ -8,7 +8,7 @@ type AlertButton = {
   text: string;
   style?: 'default' | 'cancel' | 'destructive';
   onPress?: () => void;
-}
+};
 
 type AlertProps = {
   visible: boolean;
@@ -16,7 +16,7 @@ type AlertProps = {
   message?: string;
   buttons?: AlertButton[];
   onClose: () => void;
-}
+};
 
 export const Alert: React.FC<AlertProps> = ({ visible, title, message, buttons, onClose }) => {
   const handleButtonPress = (button: AlertButton) => {

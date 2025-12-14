@@ -3,11 +3,8 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { Button } from '../../../../components/Button';
-import {
-  LandingScreenNavigationProp,
-  RootStackName,
-} from '../../../../navigation/RootNavigator/types';
+import { Button } from '@components/Button';
+import { LandingScreenNavigationProp, RootStackName } from '@navigation/RootNavigator/types';
 
 import { styles } from './styles';
 

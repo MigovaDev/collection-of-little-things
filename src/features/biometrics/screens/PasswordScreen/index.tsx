@@ -3,10 +3,10 @@ import React from 'react';
 import { Animated, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { Button } from '../../../../components/Button';
-import { PasswordScreenNavigationProp } from '../../../../navigation/BiometricNavigator/types.ts';
-import { Keypad } from '../../components/Keypad';
-import { PasscodeInput } from '../../components/PasscodeInput';
+import { Button } from '@components/Button';
+import { Keypad } from '@features/biometrics/components/Keypad';
+import { PasscodeInput } from '@features/biometrics/components/PasscodeInput';
+import { PasswordScreenNavigationProp } from '@navigation/BiometricNavigator/types';
 
 import { styles } from './styles.ts';
 import { usePasswordScreen } from './usePasswordScreen.ts';

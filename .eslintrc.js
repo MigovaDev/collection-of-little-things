@@ -92,6 +92,25 @@ module.exports = {
   settings: {
     react: { version: 'detect' },
     'import/ignore': ['node_modules/react-native/.*'],
+    'import/resolver': {
+      'babel-module': {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        root: ['./src'],
+        alias: {
+          '@': './src',
+          '@components': './src/components',
+          '@features': './src/features',
+          '@navigation': './src/navigation',
+          '@constants': './src/constants',
+        },
+      },
+    },
   },
-  ignorePatterns: ['node_modules/**/*'],
+  ignorePatterns: [
+    'node_modules/**/*',
+    'metro.config.js',
+    'babel.config.js',
+    'jest.config.js',
+    '.prettierrc.js',
+  ],
 };

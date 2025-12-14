@@ -3,12 +3,9 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { useAlert } from '../../../../components/Alert/AlertService.tsx';
-import { Button } from '../../../../components/Button';
-import {
-  BiometricStackName,
-  HomeScreenNavigationProp,
-} from '../../../../navigation/BiometricNavigator/types.ts';
+import { useAlert } from '@components/Alert/AlertService';
+import { Button } from '@components/Button';
+import { BiometricStackName, HomeScreenNavigationProp } from '@navigation/BiometricNavigator/types';
 
 import { styles } from './styles.ts';
 
