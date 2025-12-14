@@ -43,10 +43,10 @@
 ## 📸 Скриншоты
 
 ### Biometrics
-![Biometric feature](docs/gifs/biometric.gif)
+<img src="docs/gifs/biometric.gif" width="200" alt="Biometric feature" />
 
 ### Themes
-![Biometric feature](docs/gifs/themes.gif)
+<img src="docs/gifs/themes.gif" width="200" alt="Themes feature" />
 
 ## 🚀 Как запустить проект
 
