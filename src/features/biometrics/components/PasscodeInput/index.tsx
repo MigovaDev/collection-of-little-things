@@ -15,7 +15,7 @@ export const PasscodeInput = ({ codeLength, error }: PasscodeInputProps) => {
   return (
     <>
       <View style={styles.dotsRow}>
-        {dotsArray.map((i) => (
+        {dotsArray.map(i => (
           <View key={i} style={[styles.dot, codeLength > i && styles.dotFilled]} />
         ))}
       </View>
@@ -23,4 +23,3 @@ export const PasscodeInput = ({ codeLength, error }: PasscodeInputProps) => {
     </>
   );
 };
-

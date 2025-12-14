@@ -72,6 +72,22 @@ module.exports = {
     'react-native/no-inline-styles': 'off',
     'react-native/no-color-literals': 'off',
     'react-native/sort-styles': 'off',
+
+    // Quotes - enforce single quotes
+    quotes: ['error', 'single', { avoidEscape: true, allowTemplateLiterals: true }],
+
+    // Max line length
+    'max-len': [
+      'error',
+      {
+        code: 100,
+        tabWidth: 2,
+        ignoreUrls: true,
+        ignoreStrings: true,
+        ignoreTemplateLiterals: true,
+        ignoreRegExpLiterals: true,
+      },
+    ],
   },
   settings: {
     react: { version: 'detect' },

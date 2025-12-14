@@ -11,13 +11,8 @@ type KeypadButtonProps = {
 
 export const KeypadButton = ({ digit, onPress }: KeypadButtonProps) => {
   return (
-    <TouchableOpacity
-      style={styles.key}
-      onPress={() => onPress(digit)}
-      activeOpacity={0.7}
-    >
+    <TouchableOpacity style={styles.key} onPress={() => onPress(digit)} activeOpacity={0.7}>
       <Text style={styles.keyNumber}>{digit}</Text>
     </TouchableOpacity>
   );
 };
-

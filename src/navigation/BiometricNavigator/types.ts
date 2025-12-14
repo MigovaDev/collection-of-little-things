@@ -10,7 +10,11 @@ export type BiometricStackParamList = {
   [BiometricStackName.Home]: undefined;
 };
 
-export type PasswordScreenNavigationProp = StackScreenProps<BiometricStackParamList, BiometricStackName.Password>;
-export type HomeScreenNavigationProp = StackScreenProps<BiometricStackParamList, BiometricStackName.Home>;
-
-
+export type PasswordScreenNavigationProp = StackScreenProps<
+  BiometricStackParamList,
+  BiometricStackName.Password
+>;
+export type HomeScreenNavigationProp = StackScreenProps<
+  BiometricStackParamList,
+  BiometricStackName.Home
+>;

@@ -14,10 +14,9 @@ type KeypadProps = {
 export const Keypad = ({ onPressDigit }: KeypadProps) => {
   return (
     <View style={styles.keypad}>
-      {keypadDigits.map((digit) => (
+      {keypadDigits.map(digit => (
         <KeypadButton key={digit} digit={digit} onPress={onPressDigit} />
       ))}
     </View>
   );
 };
-

@@ -26,10 +26,6 @@ export const styles = StyleSheet.create({
     alignItems: 'flex-end',
     justifyContent: 'space-between',
   },
-  bottomAction: {
-    color: colors.text.secondary,
-    fontSize: 14,
-  },
   errorText: {
     color: colors.text.error,
     fontSize: 14,

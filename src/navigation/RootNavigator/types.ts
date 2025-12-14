@@ -1,5 +1,4 @@
-import {StackScreenProps} from "@react-navigation/stack";
-
+import { StackScreenProps } from '@react-navigation/stack';
 
 export enum RootStackName {
   Landing = 'Landing',
@@ -11,4 +10,7 @@ export type RootStackParamList = {
   [RootStackName.Biometric]: undefined;
 };
 
-export type LandingScreenNavigationProp = StackScreenProps<RootStackParamList, RootStackName.Landing>;
+export type LandingScreenNavigationProp = StackScreenProps<
+  RootStackParamList,
+  RootStackName.Landing
+>;

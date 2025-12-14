@@ -47,19 +47,4 @@ export const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
   },
-  logoutButton: {
-    backgroundColor: colors.button.background,
-    paddingVertical: 16,
-    paddingHorizontal: 32,
-    borderRadius: 8,
-    minWidth: 150,
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: colors.button.border,
-  },
-  logoutButtonText: {
-    color: colors.button.text,
-    fontSize: 16,
-    fontWeight: '600',
-  },
 });

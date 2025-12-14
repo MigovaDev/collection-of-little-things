@@ -1,8 +1,9 @@
 import React from 'react';
 
-import { Animated, Text, TouchableOpacity, View } from 'react-native';
+import { Animated, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { Button } from '../../../../components/Button';
 import { PasswordScreenNavigationProp } from '../../../../navigation/BiometricNavigator/types.ts';
 import { Keypad } from '../../components/Keypad';
 import { PasscodeInput } from '../../components/PasscodeInput';
@@ -31,7 +32,8 @@ export const PasswordScreen = (props: PasswordScreenNavigationProp) => {
         <View style={styles.container}>
           <View style={styles.header}>
             <Text style={styles.headerTitle}>
-              {isBiometricAvailable && `Swipe up for ${getBiometryDisplayName()} or \n `}Enter Passcode
+              {isBiometricAvailable && `Swipe up for ${getBiometryDisplayName()} or \n `}Enter
+              Passcode
             </Text>
             <PasscodeInput codeLength={code.length} error={error} />
           </View>
@@ -39,15 +41,10 @@ export const PasswordScreen = (props: PasswordScreenNavigationProp) => {
           <Keypad onPressDigit={onPressDigit} />
         </View>
         <View style={styles.bottomRow}>
-          <TouchableOpacity onPress={onDelete}>
-            <Text style={styles.bottomAction}>SOS</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={onDelete}>
-            <Text style={styles.bottomAction}>Delete</Text>
-          </TouchableOpacity>
+          <Button title={'SOS'} onPress={() => 0} variant={'ghost'} />
+          <Button title={'Delete'} onPress={onDelete} variant={'ghost'} />
         </View>
       </Animated.View>
     </SafeAreaView>
   );
 };
-

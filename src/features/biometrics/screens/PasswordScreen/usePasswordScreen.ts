@@ -1,12 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 
-import { Animated, Dimensions, PanResponder, PanResponderInstance } from 'react-native';
+import { Animated, PanResponder, PanResponderInstance } from 'react-native';
 import ReactNativeBiometrics, { BiometryTypes } from 'react-native-biometrics';
 
 import { useAlert } from '../../../../components/Alert/AlertService.tsx';
-import { BiometricStackName, PasswordScreenNavigationProp } from '../../../../navigation/BiometricNavigator/types.ts';
+import {screenHeight} from '../../../../constants/screenDimensions.ts';
+import {
+  BiometricStackName,
+  PasswordScreenNavigationProp,
+} from '../../../../navigation/BiometricNavigator/types.ts';
 
-const screenHeight = Dimensions.get('screen').height;
 const threshold = screenHeight * 0.15;
 
 const springConfig = {
@@ -18,7 +21,7 @@ const springConfig = {
 
 const REQUIRED_CODE = '0000';
 
-export const usePasswordScreen = ({navigation}: PasswordScreenNavigationProp) => {
+export const usePasswordScreen = ({ navigation }: PasswordScreenNavigationProp) => {
   const [biometryType, setBiometryType] = useState<string>('');
   const [code, setCode] = useState<string>('');
   const [error, setError] = useState<string>('');
@@ -51,7 +54,10 @@ export const usePasswordScreen = ({navigation}: PasswordScreenNavigationProp) =>
 
   const handleBiometricAuth = async () => {
     if (biometryType === 'Not Available' || biometryType === 'Error') {
-      alert('Biometric Authentication', 'Biometric authentication is not available on this device.');
+      alert(
+        'Biometric Authentication',
+        'Biometric authentication is not available on this device.',
+      );
       return;
     }
 
@@ -116,7 +122,7 @@ export const usePasswordScreen = ({navigation}: PasswordScreenNavigationProp) =>
   };
 
   const onDelete = () => {
-    setCode((prev) => (prev.length ? prev.slice(0, -1) : prev));
+    setCode(prev => (prev.length ? prev.slice(0, -1) : prev));
   };
 
   const getBiometryDisplayName = () => {
@@ -143,4 +149,3 @@ export const usePasswordScreen = ({navigation}: PasswordScreenNavigationProp) =>
     getBiometryDisplayName,
   };
 };
-

@@ -17,19 +17,4 @@ export const styles = StyleSheet.create({
     fontSize: 22,
     marginBottom: 24,
   },
-  button: {
-    backgroundColor: colors.button.background,
-    paddingVertical: 16,
-    paddingHorizontal: 24,
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: colors.button.border,
-  },
-  buttonText: {
-    color: colors.button.text,
-    fontSize: 16,
-    fontWeight: '600',
-  },
 });
-
-

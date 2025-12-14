@@ -1,14 +1,14 @@
 import React from 'react';
 
-import {
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { useAlert } from '../../../../components/Alert/AlertService.tsx';
-import { BiometricStackName, HomeScreenNavigationProp } from '../../../../navigation/BiometricNavigator/types.ts';
+import { Button } from '../../../../components/Button';
+import {
+  BiometricStackName,
+  HomeScreenNavigationProp,
+} from '../../../../navigation/BiometricNavigator/types.ts';
 
 import { styles } from './styles.ts';
 
@@ -16,21 +16,17 @@ export const HomeScreen = ({ navigation }: HomeScreenNavigationProp) => {
   const { alert } = useAlert();
 
   const handleLogout = () => {
-    alert(
-      'Logout',
-      'Are you sure you want to logout?',
-      [
-        {
-          text: 'Cancel',
-          style: 'cancel',
-        },
-        {
-          text: 'Logout',
-          style: 'destructive',
-            onPress: () => navigation.replace(BiometricStackName.Password),
-        },
-      ]
-    );
+    alert('Logout', 'Are you sure you want to logout?', [
+      {
+        text: 'Cancel',
+        style: 'cancel',
+      },
+      {
+        text: 'Logout',
+        style: 'destructive',
+        onPress: () => navigation.replace(BiometricStackName.Password),
+      },
+    ]);
   };
 
   return (
@@ -43,17 +39,13 @@ export const HomeScreen = ({ navigation }: HomeScreenNavigationProp) => {
             You have successfully authenticated using biometric authentication.
           </Text>
           <Text style={styles.description}>
-            You are now in the secure area of the app. Your biometric authentication was successful and you can access all features.
+            You are now in the secure area of the app. Your biometric authentication was successful
+            and you can access all features.
           </Text>
         </View>
 
         <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            style={styles.logoutButton}
-            onPress={handleLogout}
-          >
-            <Text style={styles.logoutButtonText}>Logout</Text>
-          </TouchableOpacity>
+          <Button title={'Logout'} onPress={handleLogout} />
         </View>
       </View>
     </SafeAreaView>
