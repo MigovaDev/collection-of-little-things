@@ -1,16 +1,16 @@
 import { StackScreenProps } from '@react-navigation/stack';
 
 export enum BiometricStackName {
-  Hello = 'Hello',
+  Password = 'Password',
   Home = 'Home',
 }
 
 export type BiometricStackParamList = {
-  [BiometricStackName.Hello]: undefined;
+  [BiometricStackName.Password]: undefined;
   [BiometricStackName.Home]: undefined;
 };
 
-export type HelloScreenNavigationProp = StackScreenProps<BiometricStackParamList, BiometricStackName.Hello>;
+export type PasswordScreenNavigationProp = StackScreenProps<BiometricStackParamList, BiometricStackName.Password>;
 export type HomeScreenNavigationProp = StackScreenProps<BiometricStackParamList, BiometricStackName.Home>;
 
 

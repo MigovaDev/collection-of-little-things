@@ -1,30 +1,24 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-import { Animated, Dimensions, PanResponder, PanResponderInstance, Text, TouchableOpacity, View } from 'react-native';
+import { Animated, Dimensions, PanResponder, PanResponderInstance } from 'react-native';
 import ReactNativeBiometrics, { BiometryTypes } from 'react-native-biometrics';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { useAlert } from '../../../../components/Alert/AlertService.tsx';
-import { BiometricStackName, HelloScreenNavigationProp } from '../../../../navigation/BiometricNavigator/types.ts';
+import { BiometricStackName, PasswordScreenNavigationProp } from '../../../../navigation/BiometricNavigator/types.ts';
 
-import { styles } from './styles.ts';
-
-const screenHeight = Dimensions.get('screen').height
+const screenHeight = Dimensions.get('screen').height;
 const threshold = screenHeight * 0.15;
-
-const keypadDigits =  ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
-const dotsArray =  [0, 1, 2, 3];
 
 const springConfig = {
   toValue: 0,
   damping: 15,
   stiffness: 150,
   useNativeDriver: true,
-}
+};
 
-const REQUIRED_CODE = '0000'
+const REQUIRED_CODE = '0000';
 
-export const HelloScreen = ({ navigation }: HelloScreenNavigationProp) => {
+export const usePasswordScreen = ({navigation}: PasswordScreenNavigationProp) => {
   const [biometryType, setBiometryType] = useState<string>('');
   const [code, setCode] = useState<string>('');
   const [error, setError] = useState<string>('');
@@ -36,11 +30,11 @@ export const HelloScreen = ({ navigation }: HelloScreenNavigationProp) => {
   const isBiometricAvailable =
     biometryType !== '' && biometryType !== 'Not Available' && biometryType !== 'Error';
 
-  const resetAnimation  = () =>  {
+  const resetAnimation = () => {
     Animated.spring(translateY.current, springConfig).start();
-  }
+  };
 
-  const  checkBiometrySupport = async () => {
+  const checkBiometrySupport = async () => {
     try {
       const rnBiometrics = new ReactNativeBiometrics({ allowDeviceCredentials: true });
       const { available, biometryType: availableType } = await rnBiometrics.isSensorAvailable();
@@ -53,9 +47,9 @@ export const HelloScreen = ({ navigation }: HelloScreenNavigationProp) => {
       console.error('Error checking biometry support:', err);
       setBiometryType('Error');
     }
-  }
+  };
 
-  const handleBiometricAuth =  async() => {
+  const handleBiometricAuth = async () => {
     if (biometryType === 'Not Available' || biometryType === 'Error') {
       alert('Biometric Authentication', 'Biometric authentication is not available on this device.');
       return;
@@ -77,7 +71,7 @@ export const HelloScreen = ({ navigation }: HelloScreenNavigationProp) => {
       console.error('Biometric authentication error:', err);
       alert('Error', 'An error occurred during authentication.');
     }
-  }
+  };
 
   const panResponder: PanResponderInstance = PanResponder.create({
     onMoveShouldSetPanResponder: (_evt, gestureState) =>
@@ -97,8 +91,7 @@ export const HelloScreen = ({ navigation }: HelloScreenNavigationProp) => {
       }
     },
     onPanResponderTerminate: resetAnimation,
-  }
-  );
+  });
 
   useEffect(() => {
     checkBiometrySupport();
@@ -112,21 +105,21 @@ export const HelloScreen = ({ navigation }: HelloScreenNavigationProp) => {
 
     if (next.length === 4) {
       setTimeout(() => {
-            if (next === REQUIRED_CODE) {
-              navigation.replace(BiometricStackName.Home);
+        if (next === REQUIRED_CODE) {
+          navigation.replace(BiometricStackName.Home);
         } else {
           setError('Incorrect Passcode');
           setCode('');
         }
       }, 120);
     }
-  }
+  };
 
-  const  onDelete = () => {
-    setCode(prev => (prev.length ? prev.slice(0, -1) : prev));
-  }
+  const onDelete = () => {
+    setCode((prev) => (prev.length ? prev.slice(0, -1) : prev));
+  };
 
-  const  getBiometryDisplayName = () => {
+  const getBiometryDisplayName = () => {
     switch (biometryType) {
       case BiometryTypes.TouchID:
         return 'Touch ID';
@@ -137,44 +130,17 @@ export const HelloScreen = ({ navigation }: HelloScreenNavigationProp) => {
       default:
         return biometryType;
     }
-  }
+  };
 
-  return (
-    <SafeAreaView style={styles.container}>
-      <Animated.View style={[styles.content,{ transform: [{ translateY: translateY.current }]} ]} {...panResponder.panHandlers}>
-        <View style={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.headerTitle}>{isBiometricAvailable && `Swipe up for ${getBiometryDisplayName()} or \n `}Enter Passcode</Text>
-          <View style={styles.dotsRow}>
-            {dotsArray.map(i => (
-              <View key={i} style={[styles.dot, code.length > i && styles.dotFilled]} />
-            ))}
-          </View>
-          <Text style={styles.errorText}>{error ?? ' '}</Text>
-        </View>
-
-        <View style={styles.keypad}>
-          {keypadDigits.map((digit) => (
-            <TouchableOpacity
-              key={digit}
-              style={styles.key}
-              onPress={() => onPressDigit(digit)}
-              activeOpacity={0.7}
-            >
-              <Text style={styles.keyNumber}>{digit}</Text>
-            </TouchableOpacity>
-          ))}
-        </View>
-      </View>
-        <View style={styles.bottomRow}>
-         <TouchableOpacity onPress={onDelete}>
-            <Text style={styles.bottomAction}>SOS</Text>
-         </TouchableOpacity>
-         <TouchableOpacity onPress={onDelete}>
-            <Text style={styles.bottomAction}>Delete</Text>
-         </TouchableOpacity>
-        </View>
-      </Animated.View>
-    </SafeAreaView>
-  );
+  return {
+    code,
+    error,
+    translateY,
+    isBiometricAvailable,
+    panResponder,
+    onPressDigit,
+    onDelete,
+    getBiometryDisplayName,
+  };
 };
+

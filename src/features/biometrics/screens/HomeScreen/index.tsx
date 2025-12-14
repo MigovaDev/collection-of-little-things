@@ -27,7 +27,7 @@ export const HomeScreen = ({ navigation }: HomeScreenNavigationProp) => {
         {
           text: 'Logout',
           style: 'destructive',
-            onPress: () => navigation.replace(BiometricStackName.Hello),
+            onPress: () => navigation.replace(BiometricStackName.Password),
         },
       ]
     );

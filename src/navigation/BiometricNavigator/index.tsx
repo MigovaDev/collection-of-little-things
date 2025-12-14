@@ -3,8 +3,8 @@ import React from 'react';
 import {createStackNavigator, StackNavigationOptions} from '@react-navigation/stack';
 
 import { colors } from '../../constants/colors';
-import { HelloScreen } from '../../features/biometrics/screens/HelloScreen';
 import { HomeScreen } from '../../features/biometrics/screens/HomeScreen';
+import { PasswordScreen } from '../../features/biometrics/screens/PasswordScreen';
 
 import { BiometricStackName,BiometricStackParamList } from './types.ts';
 
@@ -16,8 +16,8 @@ export const BiometricNavigator = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name={BiometricStackName.Hello}
-        component={HelloScreen}
+        name={BiometricStackName.Password}
+        component={PasswordScreen}
         options={options}
       />
       <Stack.Screen
