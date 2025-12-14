@@ -1,30 +1,32 @@
 import React from 'react';
 
-import { colors } from '@constants/colors';
+import { useTheme } from '@contexts/ThemeContext';
 import { HomeScreen } from '@features/biometrics/screens/HomeScreen';
 import { PasswordScreen } from '@features/biometrics/screens/PasswordScreen';
-import { createStackNavigator, StackNavigationOptions } from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
 
+import { getBiometricScreenOptions } from './options';
 import { BiometricStackName, BiometricStackParamList } from './types.ts';
 
 const Stack = createStackNavigator<BiometricStackParamList>();
 
-const options: StackNavigationOptions = {
-  headerShown: true,
-  headerTitle: '',
-  headerTintColor: colors.text.primary,
-  headerStyle: { backgroundColor: colors.background.dark },
-};
-
 export const BiometricNavigator = () => {
+  const { colors } = useTheme();
+
+  const screenOptions = getBiometricScreenOptions(colors);
+
   return (
     <Stack.Navigator>
       <Stack.Screen
         name={BiometricStackName.Password}
         component={PasswordScreen}
-        options={options}
+        options={screenOptions[BiometricStackName.Password]}
       />
-      <Stack.Screen name={BiometricStackName.Home} component={HomeScreen} options={options} />
+      <Stack.Screen
+        name={BiometricStackName.Home}
+        component={HomeScreen}
+        options={screenOptions[BiometricStackName.Home]}
+      />
     </Stack.Navigator>
   );
 };

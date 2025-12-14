@@ -76,18 +76,8 @@ module.exports = {
     // Quotes - enforce single quotes
     quotes: ['error', 'single', { avoidEscape: true, allowTemplateLiterals: true }],
 
-    // Max line length
-    'max-len': [
-      'error',
-      {
-        code: 100,
-        tabWidth: 2,
-        ignoreUrls: true,
-        ignoreStrings: true,
-        ignoreTemplateLiterals: true,
-        ignoreRegExpLiterals: true,
-      },
-    ],
+    // Max line length - disabled, Prettier handles this via printWidth
+    'max-len': 'off',
   },
   settings: {
     react: { version: 'detect' },
@@ -102,6 +92,7 @@ module.exports = {
           '@features': './src/features',
           '@navigation': './src/navigation',
           '@constants': './src/constants',
+          '@contexts': './src/contexts',
         },
       },
     },

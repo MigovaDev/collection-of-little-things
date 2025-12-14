@@ -1,7 +1,5 @@
 import { StyleSheet } from 'react-native';
 
-import { colors } from '@constants/colors';
-
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -15,7 +13,6 @@ export const styles = StyleSheet.create({
     marginBottom: 24,
   },
   headerTitle: {
-    color: colors.text.primary,
     fontSize: 18,
     textAlign: 'center',
     lineHeight: 24,
@@ -25,11 +22,5 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-end',
     justifyContent: 'space-between',
-  },
-  errorText: {
-    color: colors.text.error,
-    fontSize: 14,
-    textAlign: 'center',
-    marginTop: 8,
   },
 });

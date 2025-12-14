@@ -1,23 +1,19 @@
 import { Dimensions, StyleSheet } from 'react-native';
 
-import { colors } from '@constants/colors';
-
 const { width } = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
   overlay: {
     flex: 1,
-    backgroundColor: colors.overlay.dark,
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
   },
   alertContainer: {
-    backgroundColor: colors.background.light,
     borderRadius: 14,
     minWidth: 270,
     maxWidth: width - 40,
-    shadowColor: colors.shadow.black,
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 10,
@@ -29,7 +25,6 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: 17,
     fontWeight: '600',
-    color: colors.text.dark,
     textAlign: 'center',
     marginTop: 20,
     marginHorizontal: 20,
@@ -37,7 +32,6 @@ export const styles = StyleSheet.create({
   },
   message: {
     fontSize: 13,
-    color: colors.text.dark,
     textAlign: 'center',
     marginHorizontal: 20,
     marginBottom: 20,
@@ -45,7 +39,6 @@ export const styles = StyleSheet.create({
   },
   buttonContainer: {
     borderTopWidth: StyleSheet.hairlineWidth,
-    borderTopColor: colors.border.separator,
   },
   buttonContainerHorizontal: {
     flexDirection: 'row',
@@ -69,34 +62,29 @@ export const styles = StyleSheet.create({
   },
   buttonSeparatorVertical: {
     borderTopWidth: StyleSheet.hairlineWidth,
-    borderTopColor: colors.border.separator,
   },
   buttonSeparatorHorizontal: {
     borderLeftWidth: StyleSheet.hairlineWidth,
-    borderLeftColor: colors.border.separator,
   },
   defaultButton: {
-    backgroundColor: colors.background.transparent,
+    backgroundColor: 'transparent',
   },
   defaultButtonText: {
     fontSize: 17,
-    color: colors.button.primary,
     fontWeight: '400',
   },
   cancelButton: {
-    backgroundColor: colors.background.transparent,
+    backgroundColor: 'transparent',
   },
   cancelButtonText: {
     fontSize: 17,
-    color: colors.button.primary,
     fontWeight: '600',
   },
   destructiveButton: {
-    backgroundColor: colors.background.transparent,
+    backgroundColor: 'transparent',
   },
   destructiveButtonText: {
     fontSize: 17,
-    color: colors.button.destructive,
     fontWeight: '400',
   },
 });

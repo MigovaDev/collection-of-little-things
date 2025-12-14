@@ -1,7 +1,5 @@
 import { StyleSheet } from 'react-native';
 
-import { colors } from '@constants/colors';
-
 export const styles = StyleSheet.create({
   keypad: {
     flexDirection: 'row',
@@ -15,12 +13,10 @@ export const styles = StyleSheet.create({
     width: 80,
     height: 80,
     borderRadius: 999,
-    backgroundColor: colors.button.background,
     alignItems: 'center',
     justifyContent: 'center',
   },
   keyNumber: {
-    color: colors.text.primary,
     fontSize: 28,
     fontWeight: '700',
   },
