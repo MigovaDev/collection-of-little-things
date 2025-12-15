@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleProp, Text, TextStyle, TouchableOpacity, ViewStyle } from 'react-native';
 
 import { ThemeColors } from '@constants/themes';
-import { useTheme } from '@contexts/ThemeContext';
+import { useTheme } from '@hooks/useTheme';
 
 import { styles } from './styles';
 

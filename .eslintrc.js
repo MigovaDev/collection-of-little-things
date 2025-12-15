@@ -44,19 +44,12 @@ module.exports = {
       'error',
       {
         groups: [
-          // React import must come first (exact match for 'react')
           ['^react$'],
-          // Then other React-related packages
           ['^react-'],
-          // Then other external packages
           ['^@?\\w'],
-          // Internal packages
           ['^(@|@company|@ui|components|utils|config|vendored-editor)(/.*|$)'],
-          // Parent imports
-          ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
-          // Other relative imports
-          ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
-          // Style imports
+          ['^\.\.(?!/?$)', '^\.\./?$'],
+          ['^\./(?=.*/)(?!/?$)', '^\.(?!/?$)', '^\./?$'],
           ['^.+\\.s?css$'],
         ],
       },
@@ -76,7 +69,7 @@ module.exports = {
     // Quotes - enforce single quotes
     quotes: ['error', 'single', { avoidEscape: true, allowTemplateLiterals: true }],
 
-    // Max line length - disabled, Prettier handles this via printWidth
+    // Max line length - handled by Prettier
     'max-len': 'off',
   },
   settings: {
@@ -93,6 +86,9 @@ module.exports = {
           '@navigation': './src/navigation',
           '@constants': './src/constants',
           '@contexts': './src/contexts',
+          '@services': './src/services',
+          '@store': './src/store',
+          '@hooks': './src/hooks',
         },
       },
     },

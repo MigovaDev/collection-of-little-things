@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Text, View } from 'react-native';
 
-import { useTheme } from '@contexts/ThemeContext';
+import { useTheme } from '@hooks/useTheme';
 
 import { styles } from './styles';
 

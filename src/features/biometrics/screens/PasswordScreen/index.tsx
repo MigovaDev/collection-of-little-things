@@ -4,9 +4,9 @@ import { Animated, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Button, ButtonVariant } from '@components/Button';
-import { useTheme } from '@contexts/ThemeContext';
 import { Keypad } from '@features/biometrics/components/Keypad';
 import { PasscodeInput } from '@features/biometrics/components/PasscodeInput';
+import { useTheme } from '@hooks/useTheme';
 import { PasswordScreenNavigationProp } from '@navigation/BiometricNavigator/types';
 
 import { styles } from './styles.ts';

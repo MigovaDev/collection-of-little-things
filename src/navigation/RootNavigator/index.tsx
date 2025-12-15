@@ -1,13 +1,12 @@
 import React from 'react';
 
-import { useTheme } from '@contexts/ThemeContext';
 import { LandingScreen } from '@features/main/screens/LandingScreen';
 import { ThemesScreen } from '@features/themas/screens/ThemesScreen';
+import { useTheme } from '@hooks/useTheme';
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import { BiometricNavigator } from '../BiometricNavigator';
-
 import { getScreenOptions } from './options';
 import { RootStackName, RootStackParamList } from './types.ts';
 

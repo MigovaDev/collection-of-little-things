@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { useAlert } from '@components/Alert/AlertService';
 import { Button } from '@components/Button';
-import { useTheme } from '@contexts/ThemeContext';
+import { useTheme } from '@hooks/useTheme';
 import { BiometricStackName, HomeScreenNavigationProp } from '@navigation/BiometricNavigator/types';
 
 import { styles } from './styles.ts';

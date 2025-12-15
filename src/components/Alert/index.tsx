@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Modal, Text, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
 
-import { useTheme } from '@contexts/ThemeContext';
+import { useTheme } from '@hooks/useTheme';
 
-import { styles } from './styles.ts';
+import {  styles } from './styles.ts';
 
 type AlertButton = {
   text: string;
@@ -14,10 +14,10 @@ type AlertButton = {
 
 type AlertProps = {
   visible: boolean;
+  onClose: () => void;
   title?: string;
   message?: string;
   buttons?: AlertButton[];
-  onClose: () => void;
 };
 
 export const Alert: React.FC<AlertProps> = ({ visible, title, message, buttons, onClose }) => {
@@ -53,7 +53,7 @@ export const Alert: React.FC<AlertProps> = ({ visible, title, message, buttons, 
   };
 
   return (
-    <Modal visible={visible} transparent animationType="none" onRequestClose={onClose}>
+    <Modal visible={visible} transparent animationType={'none'} onRequestClose={onClose}>
       <TouchableWithoutFeedback onPress={onClose}>
         <View style={[styles.overlay, { backgroundColor: colors.overlay.dark }]}>
           <TouchableWithoutFeedback>

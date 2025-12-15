@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { screenHeight } from '@constants/screenDimensions';
 import { Theme, ThemeColors, themes } from '@constants/themes';
-import { useTheme } from '@contexts/ThemeContext';
+import { useTheme } from '@hooks/useTheme';
 
 import { styles } from './styles';
 

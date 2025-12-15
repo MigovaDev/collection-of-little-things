@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { useTheme } from '@contexts/ThemeContext';
 import { HomeScreen } from '@features/biometrics/screens/HomeScreen';
 import { PasswordScreen } from '@features/biometrics/screens/PasswordScreen';
+import { useTheme } from '@hooks//useTheme';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import { getBiometricScreenOptions } from './options';

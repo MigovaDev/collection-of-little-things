@@ -4,7 +4,7 @@ import { Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Button } from '@components/Button';
-import { useTheme } from '@contexts/ThemeContext';
+import { useTheme } from '@hooks/useTheme';
 import { LandingScreenNavigationProp, RootStackName } from '@navigation/RootNavigator/types';
 
 import { styles } from './styles';
