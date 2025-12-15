@@ -4,6 +4,7 @@ import { Animated, PanResponder, PanResponderInstance } from 'react-native';
 
 import { useAlert } from '@components/Alert/AlertService';
 import { screenHeight } from '@constants/screenDimensions';
+import { useTranslation } from '@hooks/useTranslation';
 import {
   BiometricStackName,
   PasswordScreenNavigationProp,
@@ -25,6 +26,7 @@ export const usePasswordScreen = ({ navigation }: PasswordScreenNavigationProp) 
   const [error, setError] = useState<string>('');
 
   const { alert } = useAlert();
+  const { t } = useTranslation();
 
   const translateY = useRef(new Animated.Value(0));
   const threshold = screenHeight * 0.15;
@@ -53,23 +55,23 @@ export const usePasswordScreen = ({ navigation }: PasswordScreenNavigationProp) 
   const handleBiometricAuth = async () => {
     if (biometryType === 'Not Available' || biometryType === 'Error') {
       alert(
-        'Biometric Authentication',
-        'Biometric authentication is not available on this device.',
+        t('password.biometricTitle'),
+        t('password.biometricNotAvailable'),
       );
       return;
     }
 
     try {
-      const success = await simplePrompt('Authenticate');
+      const success = await simplePrompt(t('password.biometricPrompt'));
 
       if (success) {
         navigation.replace(BiometricStackName.Home);
       } else {
-        alert('Authentication Failed', 'Biometric authentication was cancelled or failed.');
+        alert(t('password.biometricFailedTitle'), t('password.biometricFailedMessage'));
       }
     } catch (err) {
       console.error('Biometric authentication error:', err);
-      alert('Error', 'An error occurred during authentication.');
+      alert(t('password.errorTitle'), t('password.errorMessage'));
     }
   };
 
@@ -108,7 +110,7 @@ export const usePasswordScreen = ({ navigation }: PasswordScreenNavigationProp) 
         if (next === REQUIRED_CODE) {
           navigation.replace(BiometricStackName.Home);
         } else {
-          setError('Incorrect Passcode');
+          setError(t('password.incorrectPasscode'));
           setCode('');
         }
       }, 120);

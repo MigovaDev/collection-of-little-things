@@ -6,6 +6,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useAlert } from '@components/Alert/AlertService';
 import { Button } from '@components/Button';
 import { useTheme } from '@hooks/useTheme';
+import { useTranslation } from '@hooks/useTranslation';
 import { BiometricStackName, HomeScreenNavigationProp } from '@navigation/BiometricNavigator/types';
 
 import { styles } from './styles.ts';
@@ -13,15 +14,16 @@ import { styles } from './styles.ts';
 export const HomeScreen = ({ navigation }: HomeScreenNavigationProp) => {
   const { colors } = useTheme();
   const { alert } = useAlert();
+  const { t } = useTranslation();
 
   const handleLogout = () => {
-    alert('Logout', 'Are you sure you want to logout?', [
+    alert(t('home.logout'), t('home.logoutConfirm'), [
       {
-        text: 'Cancel',
+        text: t('common.cancel'),
         style: 'cancel',
       },
       {
-        text: 'Logout',
+        text: t('home.logout'),
         style: 'destructive',
         onPress: () => navigation.replace(BiometricStackName.Password),
       },
@@ -33,18 +35,19 @@ export const HomeScreen = ({ navigation }: HomeScreenNavigationProp) => {
       <View style={styles.content}>
         <View style={styles.successContainer}>
           <Text style={styles.successIcon}>🎉</Text>
-          <Text style={[styles.title, { color: colors.text.success }]}>Welcome!</Text>
+          <Text style={[styles.title, { color: colors.text.success }]}>
+            {t('home.welcome')}
+          </Text>
           <Text style={[styles.subtitle, { color: colors.text.primary }]}>
-            You have successfully authenticated using biometric authentication.
+            {t('home.subtitle')}
           </Text>
           <Text style={[styles.description, { color: colors.text.tertiary }]}>
-            You are now in the secure area of the app. Your biometric authentication was successful
-            and you can access all features.
+            {t('home.description')}
           </Text>
         </View>
 
         <View style={styles.buttonContainer}>
-          <Button title={'Logout'} onPress={handleLogout} />
+          <Button title={t('home.logout')} onPress={handleLogout} />
         </View>
       </View>
     </SafeAreaView>

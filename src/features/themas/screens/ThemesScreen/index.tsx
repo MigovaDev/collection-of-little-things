@@ -6,12 +6,13 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { screenHeight } from '@constants/screenDimensions';
 import { Theme, ThemeColors, themes } from '@constants/themes';
 import { useTheme } from '@hooks/useTheme';
+import { useTranslation } from '@hooks/useTranslation';
 
 import { styles } from './styles';
 
 type ThemeOption = {
   theme: Theme;
-  label: string;
+  labelKey: 'themes.dark' | 'themes.light' | 'themes.toxic';
   getBorderColor: (isSelected: boolean, themeColors: ThemeColors, currentColors: ThemeColors) => string;
 };
 
@@ -20,19 +21,19 @@ const defaultBorderColor = themes[Theme.Dark].border.separator;
 const themeOptions: ThemeOption[] = [
   {
     theme: Theme.Dark,
-    label: 'Dark',
+    labelKey: 'themes.dark',
     getBorderColor: (isSelected, _themeColors, currentColors) =>
       isSelected ? currentColors.button.primary : defaultBorderColor,
   },
   {
     theme: Theme.Light,
-    label: 'Light',
+    labelKey: 'themes.light',
     getBorderColor: (isSelected, _themeColors, currentColors) =>
       isSelected ? currentColors.button.primary : defaultBorderColor,
   },
   {
     theme: Theme.Toxic,
-    label: 'Toxic',
+    labelKey: 'themes.toxic',
     getBorderColor: (isSelected, themeColors, _currentColors) =>
       isSelected ? themeColors.text.primary : defaultBorderColor,
   },
@@ -40,6 +41,7 @@ const themeOptions: ThemeOption[] = [
 
 export const ThemesScreen = () => {
   const { theme, setTheme, colors } = useTheme();
+  const { t } = useTranslation();
 
   const handleThemeChange = (newTheme: Theme) => setTheme(newTheme);
 
@@ -50,7 +52,7 @@ export const ThemesScreen = () => {
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: colors.background.dark }]}>
       <View style={styles.content}>
-        <Text style={[styles.title, { color: colors.text.primary }]}>Choose Theme</Text>
+        <Text style={[styles.title, { color: colors.text.primary }]}>{t('themes.title')}</Text>
 
         <View style={styles.themeContainer}>
           {themeOptions.map((option) => {
@@ -86,7 +88,7 @@ export const ThemesScreen = () => {
                   </View>
                 </TouchableOpacity>
                 <Text style={[styles.themeName, { color: colors.text.primary }]}>
-                  {option.label}
+                  {t(option.labelKey)}
                 </Text>
                 <Text
                   style={[
@@ -97,7 +99,7 @@ export const ThemesScreen = () => {
                     },
                   ]}
                 >
-                  Selected
+                  {t('themes.selected')}
                 </Text>
               </View>
             );

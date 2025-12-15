@@ -1,8 +1,10 @@
 import React from 'react';
 
+import { LanguagesScreen } from '@features/languages/screens/LanguagesScreen';
 import { LandingScreen } from '@features/main/screens/LandingScreen';
 import { ThemesScreen } from '@features/themas/screens/ThemesScreen';
 import { useTheme } from '@hooks/useTheme';
+import { useTranslation } from '@hooks/useTranslation';
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -14,6 +16,7 @@ const Stack = createStackNavigator<RootStackParamList>();
 
 export const RootNavigator = () => {
   const { colors } = useTheme();
+  const { t } = useTranslation();
 
   const mainTheme: ReactNavigation.Theme = {
     ...DefaultTheme,
@@ -23,7 +26,7 @@ export const RootNavigator = () => {
     },
   };
 
-  const screenOptions = getScreenOptions(colors);
+  const screenOptions = getScreenOptions(colors, t);
 
   return (
     <NavigationContainer theme={mainTheme}>
@@ -42,6 +45,11 @@ export const RootNavigator = () => {
           name={RootStackName.Themes}
           component={ThemesScreen}
           options={screenOptions[RootStackName.Themes]}
+        />
+        <Stack.Screen
+          name={RootStackName.Languages}
+          component={LanguagesScreen}
+          options={screenOptions[RootStackName.Languages]}
         />
       </Stack.Navigator>
     </NavigationContainer>
