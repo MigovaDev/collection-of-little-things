@@ -1,53 +1,53 @@
 # Collection of Little Things
 
-## 📱 О проекте
+## 📱 About the project
 
-Проект создан развлечения ради. Здесь я показываю часть своих навыков разработки и экспериментирую с различными подходами в React Native.
+This is a small pet project to showcase different pieces of functionality and my React Native workflow. I experiment with UI, navigation, state management, and tooling that I actually use in real projects.
 
-## ✨ Что можно увидеть в проекте
+## ✨ What you can see in the app
 
-### 🔐 Биометрическая аутентификация
-- Поддержка Touch ID и Face ID
-- Альтернативный вход через PIN-код (4 цифры)
-- Swipe-up жесты для быстрой биометрической аутентификации
-- Анимированные переходы и интерактивные элементы
+### 🔐 Biometric authentication
+- Touch ID and Face ID support
+- Alternative login with a 4‑digit PIN code
+- Swipe-up gesture for quick biometric authentication
+- Animated transitions and interactive UI
 
-### 🎨 UI/UX решения
-- **Система тем** - три темы оформления (Dark, Light, Toxic)
-- Кастомные компоненты (Button, Alert, Keypad, PasscodeInput)
-- Плавные анимации и переходы
-- Адаптивный дизайн с поддержкой Safe Area
+### 🎨 UI/UX
+- **Theme system** – three visual themes (Dark, Light, Toxic)
+- Custom components (Button, Alert, Keypad, PasscodeInput)
+- Smooth animations and transitions
+- Adaptive layout with Safe Area support
 
-### 🎨 Система тем
-- **Три темы оформления**:
-  - **Dark** - классическая темная тема с белым текстом
-  - **Light** - светлая тема с темным текстом
-  - **Toxic** - неоновая тема с яркими цветами (#00ff41, #ff00ff, #00ffff)
-- **Динамическое переключение** - тема применяется ко всему приложению мгновенно
-- **Централизованное управление** - все цвета определены в `themes.ts` с типизацией
-- **Type-safe** - использование типов для безопасности
+### 🎨 Theme system
+- **Three themes**:
+  - **Dark** – classic dark theme with light text
+  - **Light** – light theme with dark text
+  - **Toxic** – neon theme with bright colors (#00ff41, #ff00ff, #00ffff)
+- **Instant switching** – theme is applied to the whole app immediately
+- **Centralized config** – all colors live in `themes.ts` with proper typing
+- **Type-safe** – strong typing for theme keys
 
-### 🌍 Смена языка
-- **Три языка интерфейса**: русский, английский, немецкий
-- **Экран Languages** - отдельный экран для выбора языка
-- **Персист языка** - выбранный язык сохраняется через Zustand + AsyncStorage
-- **Кастомный i18n** - словарь ключей и хук `useTranslation` для локализации текста
+### 🌍 Language switching
+- **Three interface languages**: Russian, English, German
+- **Languages screen** – dedicated screen to choose the language
+- **Language persistence** – selection stored via Zustand + AsyncStorage
+- **Custom i18n** – key-based dictionary and `useTranslation` hook for text localization
 
-### 🏗️ Архитектура и код
-- **Feature-based структура** - код организован по функциональным модулям
-- **Разделение логики и представления** - использование custom hooks
-- **Переиспользуемые компоненты** - модульная архитектура
-- **TypeScript** - полная типизация для надежности кода
-- **Алиасы импортов** - чистые и читаемые пути (`@components`, `@features`, `@navigation`)
-- **Zustand + AsyncStorage** - легковесный глобальный стейт менеджер с персистом
+### 🏗️ Architecture & code
+- **Feature-based structure** – code organized by features
+- **Separation of concerns** – logic extracted into custom hooks
+- **Reusable components** – modular UI
+- **TypeScript** – full typing for safer code
+- **Import aliases** – clean import paths (`@components`, `@features`, `@navigation`)
+- **Zustand + AsyncStorage** – lightweight global state manager with persistence
 
-### 🛠️ Инструменты разработки
-- **ESLint + Prettier** - автоматическое форматирование и проверка кода
-- **Husky + lint-staged** - pre-commit хуки для качества кода
-- **Система управления темами** - Zustand-стор + кастомный хук `useTheme`
-- **Константы для размеров экрана** - адаптивность под разные устройства
+### 🛠️ Developer tooling
+- **ESLint + Prettier** – auto-formatting and linting
++- **Husky + lint-staged** – pre-commit hooks for code quality
+- **Theme management** – Zustand store + `useTheme` hook
+- **Screen dimensions constants** – helpers for adaptive layout
 
-## 📸 Скриншоты
+## 📸 Screenshots
 
 ### Biometrics
 <img src="docs/gifs/biometric.gif" width="200" alt="Biometric feature" />
@@ -56,107 +56,107 @@
 <img src="docs/gifs/themes.gif" width="200" alt="Themes feature" />
 
 ### Languages
-<img src="docs/gifs/languages.gif" width="200" alt="Themes feature" />
+<img src="docs/gifs/languages.gif" width="200" alt="Languages feature" />
 
-## 🚀 Как запустить проект
+## 🚀 Getting started
 
-### Требования
+### Requirements
 
 - Node.js >= 18
 - Yarn 3.6.4
 - React Native CLI
-- Для iOS: Xcode и CocoaPods
-- Для Android: Android Studio и Android SDK
+- For iOS: Xcode and CocoaPods
+- For Android: Android Studio and Android SDK
 
-### Установка зависимостей
+### Install dependencies
 
 ```bash
-# Установка зависимостей
+# Install JS dependencies
 yarn install
 ```
 
-### Запуск на iOS
+### Run on iOS
 
 ```bash
-# Установка CocoaPods зависимостей (только первый раз)
+# Install CocoaPods dependencies (first run only)
 cd ios
 bundle install
 bundle exec pod install
 cd ..
 
-# Запуск приложения
+# Run the app on iOS simulator / device
 yarn ios
 ```
 
-### Запуск на Android
+### Run on Android
 
 ```bash
-# Убедитесь, что эмулятор Android запущен или устройство подключено
+# Make sure Android emulator is running or device is connected
 yarn android
 ```
 
-### Запуск Metro Bundler
+### Metro bundler
 
 ```bash
-# Запуск Metro bundler отдельно
+# Run Metro bundler
 yarn start
 
-# С очисткой кэша (если возникают проблемы)
+# With cache reset (if something is broken)
 yarn start --reset-cache
 ```
 
-## 📦 Используемые технологии
+## 📦 Tech stack
 
-- **React Native 0.80.2** - фреймворк для мобильной разработки
-- **React Navigation 7** - навигация между экранами
-- **TypeScript** - типизированный JavaScript
-- **react-native-biometrics** - биометрическая аутентификация
-- **react-native-gesture-handler** - обработка жестов
-- **Zustand** - глобальное управление состоянием
-- **@react-native-async-storage/async-storage** - хранилище данных
-- **ESLint + Prettier** - линтинг и форматирование
-- **Husky** - Git hooks
+- **React Native 0.80.2** – mobile framework
+- **React Navigation 7** – navigation between screens
+- **TypeScript** – typed JavaScript
+- **react-native-biometrics** – biometric authentication
+- **react-native-gesture-handler** – gesture handling
+- **Zustand** – global state management
+- **@react-native-async-storage/async-storage** – data storage
+- **ESLint + Prettier** – linting and formatting
+- **Husky** – Git hooks
 
-## 📁 Структура проекта
+## 📁 Project structure
 
 ```
 src/
-├── components/          # Переиспользуемые компоненты
-│   ├── Alert/         # Кастомный Alert компонент
-│   └── Button/        # Универсальная кнопка
-├── constants/           # Константы приложения
-│   ├── themes.ts        # Система тем (Dark, Light, Toxic)
-│   └── screenDimensions.ts  # Размеры экрана
-├── features/          # Функциональные модули
-│   ├── biometrics/    # Модуль биометрической аутентификации
-│   ├── main/            # Главный модуль
-│   └── themas/          # Модуль выбора тем
-├── hooks/               # Кастомные хуки
-│   └── useTheme.ts      # Хук работы с темами
-├── store/               # Zustand сторы
-│   └── themeStore.ts    # Стор для темы приложения
-└── navigation/          # Навигация приложения
+├── components/              # Reusable UI components
+│   ├── Alert/               # Custom Alert component
+│   └── Button/              # Generic button
+├── constants/               # App constants
+│   ├── themes.ts            # Theme system (Dark, Light, Toxic)
+│   └── screenDimensions.ts  # Screen dimensions helpers
+├── features/                # Feature modules
+│   ├── biometrics/          # Biometric auth flow
+│   ├── main/                # Landing and entry screens
+│   └── themas/              # Theme selection
+├── hooks/                   # Custom hooks
+│   └── useTheme.ts          # Theme hook (Zustand-powered)
+├── store/                   # Zustand stores
+│   └── themeStore.ts        # Theme store
+└── navigation/              # App navigation
 ```
 
-## 🎯 Особенности реализации
+## 🎯 Implementation details
 
-- **Custom Hooks** - бизнес-логика вынесена в отдельные хуки
-- **Component Composition** - компоненты разбиты на мелкие переиспользуемые части
-- **Type Safety** - полная типизация навигации и пропсов
-- **Theme System** - централизованная система тем с типами
-- **Zustand** - глобальный стор
-- **Code Quality** - автоматические проверки перед коммитом
-- **Clean Code** - следование принципам чистого кода
+- **Custom hooks** – business logic extracted into dedicated hooks
+- **Component composition** – UI split into small reusable pieces
+- **Type safety** – full typing for navigation and props
+- **Theme system** – centralized theme config with types
+- **Zustand** – global store for app-wide state
+- **Code quality** – automated checks before commit
+- **Clean code** – consistent style and structure
 
-## 📝 Скрипты
+## 📝 Scripts
 
 ```bash
-yarn start      # Запуск Metro bundler
-yarn android    # Запуск на Android
-yarn ios        # Запуск на iOS
-yarn lint       # Проверка кода ESLint
+yarn start      # Start Metro bundler
+yarn android    # Run Android app
+yarn ios        # Run iOS app
+yarn lint       # Run ESLint
 ```
 
-## 📄 Лицензия
+## 📄 License
 
-Это pet-проект для портфолио.
+This is a personal pet project for portfolio purposes.
