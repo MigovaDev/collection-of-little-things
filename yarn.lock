@@ -3870,8 +3870,10 @@ __metadata:
     eslint-plugin-simple-import-sort: ^12.1.1
     eslint-plugin-unused-imports: ^4.3.0
     husky: ^9.1.7
+    import-fresh: ^3.3.1
     jest: ^29.6.3
     lint-staged: ^16.2.7
+    lodash: ^4.17.21
     prettier: 2.8.8
     react: 19.1.0
     react-native: 0.80.2
@@ -5638,7 +5640,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"import-fresh@npm:^3.2.1, import-fresh@npm:^3.3.0":
+"import-fresh@npm:^3.2.1, import-fresh@npm:^3.3.0, import-fresh@npm:^3.3.1":
   version: 3.3.1
   resolution: "import-fresh@npm:3.3.1"
   dependencies:
