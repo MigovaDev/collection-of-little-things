@@ -130,7 +130,7 @@ src/
 ├── features/                # Feature modules
 │   ├── biometrics/          # Biometric auth flow
 │   ├── main/                # Landing and entry screens
-│   └── themas/              # Theme selection
+│   └── themes/              # Theme selection
 ├── hooks/                   # Custom hooks
 │   └── useTheme.ts          # Theme hook (Zustand-powered)
 ├── store/                   # Zustand stores

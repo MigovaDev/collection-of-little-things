@@ -2,7 +2,7 @@ import React from 'react';
 
 import { LanguagesScreen } from '@features/languages/screens/LanguagesScreen';
 import { LandingScreen } from '@features/main/screens/LandingScreen';
-import { ThemesScreen } from '@features/themas/screens/ThemesScreen';
+import { ThemesScreen } from '@features/themes/screens/ThemesScreen';
 import { useTheme } from '@hooks/useTheme';
 import { useTranslation } from '@hooks/useTranslation';
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';

@@ -17,7 +17,7 @@ export const LandingScreen = ({ navigation }: LandingScreenNavigationProp) => {
   const goToBiometric = () =>
     navigation.navigate(RootStackName.Biometric);
 
-  const goToThemas = () =>
+  const goToThemes = () =>
     navigation.navigate(RootStackName.Themes);
 
   const goToLanguages = () =>
@@ -30,7 +30,7 @@ export const LandingScreen = ({ navigation }: LandingScreenNavigationProp) => {
           {t('landing.title')}
         </Text>
         <Button title={t('landing.goToBiometrics')} onPress={goToBiometric} />
-        <Button title={t('landing.goToThemes')} onPress={goToThemas} />
+        <Button title={t('landing.goToThemes')} onPress={goToThemes} />
         <Button title={t('landing.goToLanguages')} onPress={goToLanguages} />
       </View>
     </SafeAreaView>
