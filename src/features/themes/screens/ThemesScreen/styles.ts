@@ -38,9 +38,6 @@ export const styles = StyleSheet.create({
     fontWeight: '500',
     height: 20,
   },
-  buttonContainer: {
-    gap: 16,
-  },
 });
 
 

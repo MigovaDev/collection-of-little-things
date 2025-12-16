@@ -4,9 +4,10 @@ import { Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { supportedLanguages } from '@constants/languages';
-import { LanguageItem } from '@features/languages/components/LanguageItem';
 import { useTheme } from '@hooks/useTheme';
 import { useTranslation } from '@hooks/useTranslation';
+
+import { LanguageItem } from '@/features/languages/components/LanguageItem';
 
 import { styles } from './styles';
 

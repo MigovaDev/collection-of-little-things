@@ -2,16 +2,18 @@ import { StackScreenProps } from '@react-navigation/stack';
 
 export enum RootStackName {
   Landing = 'Landing',
-  Biometric = 'Biometric',
+  BiometricsNavigator = 'BiometricsNavigator',
   Themes = 'Themes',
   Languages = 'Languages',
+  BubblesNavigator = 'BubblesNavigator',
 }
 
 export type RootStackParamList = {
   [RootStackName.Landing]: undefined;
-  [RootStackName.Biometric]: undefined;
+  [RootStackName.BiometricsNavigator]: undefined;
   [RootStackName.Themes]: undefined;
   [RootStackName.Languages]: undefined;
+  [RootStackName.BubblesNavigator]: undefined;
 };
 
 export type LandingScreenNavigationProp = StackScreenProps<

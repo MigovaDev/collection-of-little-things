@@ -9,6 +9,7 @@ import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import { BiometricNavigator } from '../BiometricNavigator';
+import { BubblesNavigator } from '../BubblesNavigator';
 import { getScreenOptions } from './options';
 import { RootStackName, RootStackParamList } from './types.ts';
 
@@ -37,9 +38,14 @@ export const RootNavigator = () => {
           options={screenOptions[RootStackName.Landing]}
         />
         <Stack.Screen
-          name={RootStackName.Biometric}
+          name={RootStackName.BiometricsNavigator}
           component={BiometricNavigator}
-          options={screenOptions[RootStackName.Biometric]}
+          options={screenOptions[RootStackName.BiometricsNavigator]}
+        />
+        <Stack.Screen
+          name={RootStackName.Languages}
+          component={LanguagesScreen}
+          options={screenOptions[RootStackName.Languages]}
         />
         <Stack.Screen
           name={RootStackName.Themes}
@@ -47,11 +53,12 @@ export const RootNavigator = () => {
           options={screenOptions[RootStackName.Themes]}
         />
         <Stack.Screen
-          name={RootStackName.Languages}
-          component={LanguagesScreen}
-          options={screenOptions[RootStackName.Languages]}
+          name={RootStackName.BubblesNavigator}
+          component={BubblesNavigator}
+          options={screenOptions[RootStackName.BubblesNavigator]}
         />
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
+

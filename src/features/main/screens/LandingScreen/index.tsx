@@ -17,7 +17,7 @@ export const LandingScreen = ({ navigation }: LandingScreenNavigationProp) => {
   const actions = [
       {
         title: t('landing.goToBiometrics'),
-        onPress: () => navigation.navigate(RootStackName.Biometric),
+        onPress: () => navigation.navigate(RootStackName.BiometricsNavigator),
       },
       {
         title: t('landing.goToThemes'),
@@ -26,8 +26,12 @@ export const LandingScreen = ({ navigation }: LandingScreenNavigationProp) => {
       {
         title: t('landing.goToLanguages'),
         onPress: () => navigation.navigate(RootStackName.Languages),
+    },
+    {
+      title: t('landing.goToBubbles'),
+      onPress: () => navigation.navigate(RootStackName.BubblesNavigator),
       },
-    ]
+  ];
 
   const renderItem: ListRenderItem<(typeof actions)[number]> = ({ item }) => (
     <Button title={item.title} onPress={item.onPress} />

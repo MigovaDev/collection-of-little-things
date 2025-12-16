@@ -5,6 +5,7 @@ type TranslationKey =
   | 'landing.goToBiometrics'
   | 'landing.goToThemes'
   | 'landing.goToLanguages'
+  | 'landing.goToBubbles'
   | 'themes.title'
   | 'themes.dark'
   | 'themes.light'
@@ -32,7 +33,14 @@ type TranslationKey =
   | 'languages.russian'
   | 'languages.english'
   | 'languages.german'
-  | 'languages.selected';
+  | 'languages.selected'
+  | 'bubbles.countTitle'
+  | 'bubbles.countDescription'
+  | 'bubbles.start'
+  | 'bubbles.playTitle'
+  | 'bubbles.congrats'
+  | 'bubbles.errorRange'
+  | 'bubbles.backToHome';
 
 type TranslationDictionary = Record<TranslationKey, string>;
 
@@ -42,6 +50,7 @@ export const translations: Record<Language, TranslationDictionary> = {
     'landing.goToBiometrics': 'Go to biometrics',
     'landing.goToThemes': 'Go to themes',
     'landing.goToLanguages': 'Go to languages',
+    'landing.goToBubbles': 'Go to bubbles',
 
     'themes.title': 'Choose Theme',
     'themes.dark': 'Dark',
@@ -76,12 +85,20 @@ export const translations: Record<Language, TranslationDictionary> = {
     'languages.english': 'English',
     'languages.german': 'German',
     'languages.selected': 'Selected',
+    'bubbles.countTitle': 'Enter the number of bubbles',
+    'bubbles.countDescription': 'The value must be in the range from 1 to 20.',
+    'bubbles.start': 'Start popping',
+    'bubbles.playTitle': 'Bubbles',
+    'bubbles.congrats': 'Congratulations, you are the bubble popping champion!',
+    'bubbles.errorRange': 'Please enter a whole number from 1 to 20.',
+    'bubbles.backToHome': 'Back to home',
   },
   [Language.Ru]: {
     'landing.title': 'Collection of little things',
     'landing.goToBiometrics': 'Перейти к биометрии',
     'landing.goToThemes': 'Перейти к темам',
     'landing.goToLanguages': 'Выбрать язык',
+    'landing.goToBubbles': 'Перейти к пузырям',
 
     'themes.title': 'Выберите тему',
     'themes.dark': 'Тёмная',
@@ -116,12 +133,20 @@ export const translations: Record<Language, TranslationDictionary> = {
     'languages.english': 'Английский',
     'languages.german': 'Немецкий',
     'languages.selected': 'Выбран',
+    'bubbles.countTitle': 'Введите количество пузырей',
+    'bubbles.countDescription': 'Значение должно быть в диапазоне от 1 до 20.',
+    'bubbles.start': 'Начать лопать',
+    'bubbles.playTitle': 'Пузыри',
+    'bubbles.congrats': 'Поздравляю, вы чемпион по лопанью пузырей',
+    'bubbles.errorRange': 'Введите целое число от 1 до 20.',
+    'bubbles.backToHome': 'Вернуться на главную',
   },
   [Language.De]: {
     'landing.title': 'Collection of little things',
     'landing.goToBiometrics': 'Zu Biometrie',
     'landing.goToThemes': 'Zu Themes',
     'landing.goToLanguages': 'Sprache wählen',
+    'landing.goToBubbles': 'Zu Bubbles',
 
     'themes.title': 'Theme wählen',
     'themes.dark': 'Dunkel',
@@ -157,6 +182,14 @@ export const translations: Record<Language, TranslationDictionary> = {
     'languages.english': 'Englisch',
     'languages.german': 'Deutsch',
     'languages.selected': 'Ausgewählt',
+
+    'bubbles.countTitle': 'Geben Sie die Anzahl der Blasen ein',
+    'bubbles.countDescription': 'Der Wert muss im Bereich von 1 bis 20 liegen.',
+    'bubbles.start': 'Los geht\'s',
+    'bubbles.playTitle': 'Bubbles',
+    'bubbles.congrats': 'Glückwunsch, du bist der Champion im Blasenplatzen!',
+    'bubbles.errorRange': 'Bitte gib eine ganze Zahl von 1 bis 20 ein.',
+    'bubbles.backToHome': 'Zurück zum Start',
   },
 };
 

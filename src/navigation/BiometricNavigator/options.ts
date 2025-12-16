@@ -9,6 +9,7 @@ export const getBiometricScreenOptions = (
   [BiometricStackName.Password]: {
     headerShown: true,
     headerTitle: '',
+    headerBackTitle: '',
     headerTintColor: colors.text.primary,
     headerStyle: { backgroundColor: colors.background.dark },
     headerShadowVisible: false,
@@ -16,6 +17,7 @@ export const getBiometricScreenOptions = (
   [BiometricStackName.Home]: {
     headerShown: true,
     headerTitle: '',
+    headerBackTitle: '',
     headerTintColor: colors.text.primary,
     headerStyle: { backgroundColor: colors.background.dark },
     headerShadowVisible: false,

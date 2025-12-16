@@ -14,7 +14,7 @@ export const getScreenOptions = (
     headerShown: false,
     animation: 'slide_from_right',
   },
-  [RootStackName.Biometric]: {
+  [RootStackName.BiometricsNavigator]: {
     headerShown: false,
     animation: 'slide_from_right',
   },
@@ -23,6 +23,7 @@ export const getScreenOptions = (
     headerTitle: t('themes.title'),
     headerTintColor: colors.text.primary,
     headerStyle: { backgroundColor: colors.background.dark },
+    headerBackTitle: '',
     headerShadowVisible: false,
     animation: 'slide_from_right',
   },
@@ -31,7 +32,12 @@ export const getScreenOptions = (
     headerTitle: t('languages.title'),
     headerTintColor: colors.text.primary,
     headerStyle: { backgroundColor: colors.background.dark },
+    headerBackTitle: '',
     headerShadowVisible: false,
+    animation: 'slide_from_right',
+  },
+  [RootStackName.BubblesNavigator]: {
+    headerShown: false,
     animation: 'slide_from_right',
   },
 });
