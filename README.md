@@ -12,6 +12,15 @@ This is a small pet project to showcase different pieces of functionality and my
 - Swipe-up gesture for quick biometric authentication
 - Animated transitions and interactive UI
 
+### 🫧 Bubbles game
+- **Interactive bubble popping game** – tap bubbles to pop them
+- **Customizable count** – choose number of bubbles (1–20) with form validation
+- **Smooth animations** – bubbles float around the screen with continuous movement
+- **Pop animation** – bubbles expand and fade when tapped
+- **Form validation** – input validation using `react-hook-form` and `yup`
+- **Reusable components** – `ControlledInput` for form fields, `Bubble` component for game elements
+- **Game completion** – congratulatory message when all bubbles are popped
+
 ### 🎨 UI/UX
 - **Theme system** – three visual themes (Dark, Light, Toxic)
 - Custom components (Button, Alert, Keypad, PasscodeInput)
@@ -57,6 +66,9 @@ This is a small pet project to showcase different pieces of functionality and my
 
 ### Languages
 <img src="docs/gifs/languages.gif" width="200" alt="Languages feature" />
+
+### Bubbles (Animations)
+<img src="docs/gifs/bubbles.gif" width="200" alt="Bubbles game feature" />
 
 ## 🚀 Getting started
 
@@ -112,6 +124,9 @@ yarn start --reset-cache
 - **TypeScript** – typed JavaScript
 - **react-native-biometrics** – biometric authentication
 - **react-native-gesture-handler** – gesture handling
+- **react-hook-form** – form state management and validation
+- **yup** – schema validation
+- **@hookform/resolvers** – validation resolvers for react-hook-form
 - **Zustand** – global state management
 - **@react-native-async-storage/async-storage** – data storage
 - **ESLint + Prettier** – linting and formatting
@@ -123,12 +138,17 @@ yarn start --reset-cache
 src/
 ├── components/              # Reusable UI components
 │   ├── Alert/               # Custom Alert component
-│   └── Button/              # Generic button
+│   ├── Button/              # Generic button
+│   └── ControlledInput/     # Form input with react-hook-form integration
 ├── constants/               # App constants
 │   ├── themes.ts            # Theme system (Dark, Light, Toxic)
 │   └── screenDimensions.ts  # Screen dimensions helpers
 ├── features/                # Feature modules
 │   ├── biometrics/          # Biometric auth flow
+│   ├── bubbles/             # Bubbles game
+│   │   ├── components/      # Bubble component
+│   │   ├── screens/         # Game screens (count input, game)
+│   │   └── schemas/         # Form validation schemas
 │   ├── main/                # Landing and entry screens
 │   └── themes/              # Theme selection
 ├── hooks/                   # Custom hooks
@@ -140,8 +160,10 @@ src/
 
 ## 🎯 Implementation details
 
-- **Custom hooks** – business logic extracted into dedicated hooks
+- **Custom hooks** – business logic extracted into dedicated hooks (e.g., `useBubblesScreen`)
 - **Component composition** – UI split into small reusable pieces
+- **Form management** – `react-hook-form` with `yup` validation schemas
+- **Animation system** – React Native `Animated` API for smooth animations
 - **Type safety** – full typing for navigation and props
 - **Theme system** – centralized theme config with types
 - **Zustand** – global store for app-wide state
