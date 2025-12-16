@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Text, View } from 'react-native';
+import { FlatList, ListRenderItem, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Button } from '@components/Button';
@@ -14,14 +14,24 @@ export const LandingScreen = ({ navigation }: LandingScreenNavigationProp) => {
   const { colors } = useTheme();
   const { t } = useTranslation();
 
-  const goToBiometric = () =>
-    navigation.navigate(RootStackName.Biometric);
+  const actions = [
+      {
+        title: t('landing.goToBiometrics'),
+        onPress: () => navigation.navigate(RootStackName.Biometric),
+      },
+      {
+        title: t('landing.goToThemes'),
+        onPress:  () => navigation.navigate(RootStackName.Themes),
+      },
+      {
+        title: t('landing.goToLanguages'),
+        onPress: () => navigation.navigate(RootStackName.Languages),
+      },
+    ]
 
-  const goToThemes = () =>
-    navigation.navigate(RootStackName.Themes);
-
-  const goToLanguages = () =>
-    navigation.navigate(RootStackName.Languages);
+  const renderItem: ListRenderItem<(typeof actions)[number]> = ({ item }) => (
+    <Button title={item.title} onPress={item.onPress} />
+  );
 
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: colors.background.dark }]}>
@@ -29,9 +39,12 @@ export const LandingScreen = ({ navigation }: LandingScreenNavigationProp) => {
         <Text style={[styles.title, { color: colors.text.primary }]}>
           {t('landing.title')}
         </Text>
-        <Button title={t('landing.goToBiometrics')} onPress={goToBiometric} />
-        <Button title={t('landing.goToThemes')} onPress={goToThemes} />
-        <Button title={t('landing.goToLanguages')} onPress={goToLanguages} />
+        <FlatList
+          data={actions}
+          renderItem={renderItem}
+          keyExtractor={item => item.title}
+          contentContainerStyle={styles.listContent}
+        />
       </View>
     </SafeAreaView>
   );
