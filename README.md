@@ -21,6 +21,14 @@ This is a small pet project to showcase different pieces of functionality and my
 - **Reusable components** – `ControlledInput` for form fields, `Bubble` component for game elements
 - **Game completion** – congratulatory message when all bubbles are popped
 
+### 📷 QR Scanner
+- **Real-time QR code scanning** – scan QR codes using device camera
+- **Camera permissions** – permission request
+- **Result modal** – displays scanned data in a modal with actions
+- **URL detection** – automatically detects if scanned data is a valid URL
+- **Open links** – one-tap to open URLs in default browser
+- **Copy to clipboard** – copy scanned data with a single tap
+
 ### 🎨 UI/UX
 - **Theme system** – three visual themes (Dark, Light, Toxic)
 - Custom components (Button, Alert, Keypad, PasscodeInput)
@@ -52,7 +60,7 @@ This is a small pet project to showcase different pieces of functionality and my
 
 ### 🛠️ Developer tooling
 - **ESLint + Prettier** – auto-formatting and linting
-+- **Husky + lint-staged** – pre-commit hooks for code quality
+- **Husky + lint-staged** – pre-commit hooks for code quality
 - **Theme management** – Zustand store + `useTheme` hook
 - **Screen dimensions constants** – helpers for adaptive layout
 
@@ -69,6 +77,9 @@ This is a small pet project to showcase different pieces of functionality and my
 
 ### Bubbles (Animations)
 <img src="docs/gifs/bubbles.gif" width="200" alt="Bubbles game feature" />
+
+### QR scanner
+<img src="docs/gifs/qr.gif" width="200" alt="QR scanner" />
 
 ## 🚀 Getting started
 
@@ -123,12 +134,15 @@ yarn start --reset-cache
 - **React Navigation 7** – navigation between screens
 - **TypeScript** – typed JavaScript
 - **react-native-biometrics** – biometric authentication
+- **react-native-vision-camera** – camera access and QR code scanning
+- **react-native-permissions** – runtime permission handling
 - **react-native-gesture-handler** – gesture handling
 - **react-hook-form** – form state management and validation
 - **yup** – schema validation
 - **@hookform/resolvers** – validation resolvers for react-hook-form
 - **Zustand** – global state management
 - **@react-native-async-storage/async-storage** – data storage
+- **@react-native-clipboard/clipboard** – clipboard operations
 - **ESLint + Prettier** – linting and formatting
 - **Husky** – Git hooks
 
@@ -137,25 +151,47 @@ yarn start --reset-cache
 ```
 src/
 ├── components/              # Reusable UI components
-│   ├── Alert/               # Custom Alert component
+│   ├── Alert/               # Custom Alert component with service
 │   ├── Button/              # Generic button
-│   └── ControlledInput/     # Form input with react-hook-form integration
+│   ├── ControlledInput/     # Form input with react-hook-form integration
+│   ├── Modal/               # Custom Modal component
+│   └── Toast/               # Toast notifications with service
 ├── constants/               # App constants
+│   ├── languages.ts         # Available languages configuration
+│   ├── screenDimensions.ts  # Screen dimensions helpers
 │   ├── themes.ts            # Theme system (Dark, Light, Toxic)
-│   └── screenDimensions.ts  # Screen dimensions helpers
+│   └── translations.ts      # Translation keys
 ├── features/                # Feature modules
 │   ├── biometrics/          # Biometric auth flow
+│   │   ├── components/      # Keypad, PasscodeInput
+│   │   └── screens/         # HomeScreen, PasswordScreen
 │   ├── bubbles/             # Bubbles game
 │   │   ├── components/      # Bubble component
-│   │   ├── screens/         # Game screens (count input, game)
+│   │   ├── screens/         # BubblesCountScreen, BubblesScreen
 │   │   └── schemas/         # Form validation schemas
+│   ├── languages/           # Language selection
+│   │   ├── components/      # LanguageItem
+│   │   └── screens/         # LanguagesScreen
 │   ├── main/                # Landing and entry screens
+│   │   └── screens/         # LandingScreen
+│   ├── qrscanner/           # QR code scanner
+│   │   ├── components/      # QRResultModal, ScanOverlay
+│   │   └── screens/         # QRScannerScreen
 │   └── themes/              # Theme selection
+│       ├── constants/       # Theme constants
+│       └── screens/         # ThemesScreen
 ├── hooks/                   # Custom hooks
-│   └── useTheme.ts          # Theme hook (Zustand-powered)
+│   ├── useTheme.ts          # Theme hook (Zustand-powered)
+│   └── useTranslation.ts    # Translation hook 
+├── navigation/              # App navigation
+│   ├── BiometricNavigator/  # Biometric feature navigation
+│   ├── BubblesNavigator/    # Bubbles game navigation
+│   └── RootNavigator/       # Root navigation stack
 ├── store/                   # Zustand stores
-│   └── themeStore.ts        # Theme store
-└── navigation/              # App navigation
+│   ├── languageStore.ts     # Language state management
+│   └── themeStore.ts        # Theme state management
+└── utils/                   # Utility functions
+    └── permissions.ts       # Permission handling helper
 ```
 
 ## 🎯 Implementation details
