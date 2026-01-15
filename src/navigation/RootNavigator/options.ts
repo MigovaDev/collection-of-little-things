@@ -40,5 +40,9 @@ export const getScreenOptions = (
     headerShown: false,
     animation: 'slide_from_right',
   },
+  [RootStackName.QRScanner]: {
+    headerShown: false,
+    animation: 'slide_from_right',
+  },
 });
 

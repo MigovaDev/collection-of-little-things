@@ -2,6 +2,7 @@ import React from 'react';
 
 import { LanguagesScreen } from '@features/languages/screens/LanguagesScreen';
 import { LandingScreen } from '@features/main/screens/LandingScreen';
+import { QRScannerScreen } from '@features/qrscanner/screens/QRScannerScreen';
 import { ThemesScreen } from '@features/themes/screens/ThemesScreen';
 import { useTheme } from '@hooks/useTheme';
 import { useTranslation } from '@hooks/useTranslation';
@@ -56,6 +57,11 @@ export const RootNavigator = () => {
           name={RootStackName.BubblesNavigator}
           component={BubblesNavigator}
           options={screenOptions[RootStackName.BubblesNavigator]}
+        />
+        <Stack.Screen
+          name={RootStackName.QRScanner}
+          component={QRScannerScreen}
+          options={screenOptions[RootStackName.QRScanner]}
         />
       </Stack.Navigator>
     </NavigationContainer>

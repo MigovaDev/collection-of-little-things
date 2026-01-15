@@ -20,7 +20,7 @@ type AlertProps = {
   buttons?: AlertButton[];
 };
 
-export const Alert: React.FC<AlertProps> = ({ visible, title, message, buttons, onClose }) => {
+export const Alert = ({ visible, title, message, buttons, onClose }: AlertProps) => {
   const { colors } = useTheme();
 
   const handleButtonPress = (button: AlertButton) => {

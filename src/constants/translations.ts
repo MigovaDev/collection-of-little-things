@@ -6,6 +6,7 @@ type TranslationKey =
   | 'landing.goToThemes'
   | 'landing.goToLanguages'
   | 'landing.goToBubbles'
+  | 'landing.goToQRScanner'
   | 'themes.title'
   | 'themes.dark'
   | 'themes.light'
@@ -40,7 +41,17 @@ type TranslationKey =
   | 'bubbles.playTitle'
   | 'bubbles.congrats'
   | 'bubbles.errorRange'
-  | 'bubbles.backToHome';
+  | 'bubbles.backToHome'
+  | 'qrscanner.instruction'
+  | 'qrscanner.scanResult'
+  | 'qrscanner.openLink'
+  | 'qrscanner.copy'
+  | 'qrscanner.copied'
+  | 'qrscanner.cameraNotAvailable'
+  | 'qrscanner.permissionDenied'
+  | 'qrscanner.requestingPermission'
+  | 'common.close'
+  | 'common.back';
 
 type TranslationDictionary = Record<TranslationKey, string>;
 
@@ -51,6 +62,7 @@ export const translations: Record<Language, TranslationDictionary> = {
     'landing.goToThemes': 'Go to themes',
     'landing.goToLanguages': 'Go to languages',
     'landing.goToBubbles': 'Go to bubbles',
+    'landing.goToQRScanner': 'Go to QR scanner',
 
     'themes.title': 'Choose Theme',
     'themes.dark': 'Dark',
@@ -65,6 +77,8 @@ export const translations: Record<Language, TranslationDictionary> = {
     'home.logout': 'Logout',
     'home.logoutConfirm': 'Are you sure you want to logout?',
     'common.cancel': 'Cancel',
+    'common.close': 'Close',
+    'common.back': 'Back',
 
     'password.headerWithBiometry': 'Swipe up for {{biometryType}} or \n Enter Passcode',
     'password.headerWithoutBiometry': 'Enter Passcode',
@@ -92,6 +106,14 @@ export const translations: Record<Language, TranslationDictionary> = {
     'bubbles.congrats': 'Congratulations, you are the bubble popping champion!',
     'bubbles.errorRange': 'Please enter a whole number from 1 to 20.',
     'bubbles.backToHome': 'Back to home',
+    'qrscanner.instruction': 'Position the QR code within the frame',
+    'qrscanner.scanResult': 'QR Code Scanned',
+    'qrscanner.openLink': 'Open Link',
+    'qrscanner.copy': 'Copy',
+    'qrscanner.copied': 'Copied!',
+    'qrscanner.cameraNotAvailable': 'Camera is not available on this device.',
+    'qrscanner.permissionDenied': 'Camera permission is required to scan QR codes.',
+    'qrscanner.requestingPermission': 'Requesting camera permission...',
   },
   [Language.Ru]: {
     'landing.title': 'Collection of little things',
@@ -99,6 +121,7 @@ export const translations: Record<Language, TranslationDictionary> = {
     'landing.goToThemes': 'Перейти к темам',
     'landing.goToLanguages': 'Выбрать язык',
     'landing.goToBubbles': 'Перейти к пузырям',
+    'landing.goToQRScanner': 'Перейти к QR сканеру',
 
     'themes.title': 'Выберите тему',
     'themes.dark': 'Тёмная',
@@ -113,6 +136,8 @@ export const translations: Record<Language, TranslationDictionary> = {
     'home.logout': 'Выйти',
     'home.logoutConfirm': 'Вы уверены, что хотите выйти?',
     'common.cancel': 'Отмена',
+    'common.close': 'Закрыть',
+    'common.back': 'Назад',
 
     'password.headerWithBiometry': 'Свайпните вверх для {{biometryType}} или \n введите код',
     'password.headerWithoutBiometry': 'Введите код',
@@ -140,6 +165,14 @@ export const translations: Record<Language, TranslationDictionary> = {
     'bubbles.congrats': 'Поздравляю, вы чемпион по лопанью пузырей',
     'bubbles.errorRange': 'Введите целое число от 1 до 20.',
     'bubbles.backToHome': 'Вернуться на главную',
+    'qrscanner.instruction': 'Поместите QR код в рамку',
+    'qrscanner.scanResult': 'QR код отсканирован',
+    'qrscanner.openLink': 'Открыть ссылку',
+    'qrscanner.copy': 'Копировать',
+    'qrscanner.copied': 'Скопировано!',
+    'qrscanner.cameraNotAvailable': 'Камера недоступна на этом устройстве.',
+    'qrscanner.permissionDenied': 'Для сканирования QR кодов требуется разрешение на использование камеры.',
+    'qrscanner.requestingPermission': 'Запрос разрешения на использование камеры...',
   },
   [Language.De]: {
     'landing.title': 'Collection of little things',
@@ -147,6 +180,7 @@ export const translations: Record<Language, TranslationDictionary> = {
     'landing.goToThemes': 'Zu Themes',
     'landing.goToLanguages': 'Sprache wählen',
     'landing.goToBubbles': 'Zu Bubbles',
+    'landing.goToQRScanner': 'Zu QR-Scanner',
 
     'themes.title': 'Theme wählen',
     'themes.dark': 'Dunkel',
@@ -161,6 +195,8 @@ export const translations: Record<Language, TranslationDictionary> = {
     'home.logout': 'Abmelden',
     'home.logoutConfirm': 'Sind Sie sicher, dass Sie sich abmelden möchten?',
     'common.cancel': 'Abbrechen',
+    'common.close': 'Schließen',
+    'common.back': 'Zurück',
 
     'password.headerWithBiometry': 'Wischen Sie nach oben für {{biometryType}} oder \n geben Sie den Code ein',
     'password.headerWithoutBiometry': 'Code eingeben',
@@ -190,6 +226,14 @@ export const translations: Record<Language, TranslationDictionary> = {
     'bubbles.congrats': 'Glückwunsch, du bist der Champion im Blasenplatzen!',
     'bubbles.errorRange': 'Bitte gib eine ganze Zahl von 1 bis 20 ein.',
     'bubbles.backToHome': 'Zurück zum Start',
+    'qrscanner.instruction': 'Platziere den QR-Code im Rahmen',
+    'qrscanner.scanResult': 'QR-Code gescannt',
+    'qrscanner.openLink': 'Link öffnen',
+    'qrscanner.copy': 'Kopieren',
+    'qrscanner.copied': 'Kopiert!',
+    'qrscanner.cameraNotAvailable': 'Kamera ist auf diesem Gerät nicht verfügbar.',
+    'qrscanner.permissionDenied': 'Kamera-Berechtigung ist erforderlich, um QR-Codes zu scannen.',
+    'qrscanner.requestingPermission': 'Kamera-Berechtigung wird angefordert...',
   },
 };
 

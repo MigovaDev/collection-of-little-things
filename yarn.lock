@@ -1970,6 +1970,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-native-clipboard/clipboard@npm:^1.16.3":
+  version: 1.16.3
+  resolution: "@react-native-clipboard/clipboard@npm:1.16.3"
+  peerDependencies:
+    react: ">= 16.9.0"
+    react-native: ">= 0.61.5"
+    react-native-macos: ">= 0.61.0"
+    react-native-windows: ">= 0.61.0"
+  peerDependenciesMeta:
+    react-native-macos:
+      optional: true
+    react-native-windows:
+      optional: true
+  checksum: 3d9944fc2c4acbecf917e752cc36ec92c4dcdb590c94c81c78c24df9ddd4b02448e252eb39e0949000b01046cfdfe2b03e1676c5e3ac0fe7eb3bf6b649970c27
+  languageName: node
+  linkType: hard
+
 "@react-native-community/cli-clean@npm:19.1.1":
   version: 19.1.1
   resolution: "@react-native-community/cli-clean@npm:19.1.1"
@@ -3859,6 +3876,7 @@ __metadata:
     "@babel/runtime": ^7.25.0
     "@hookform/resolvers": ^3.10.0
     "@react-native-async-storage/async-storage": ^2.1.0
+    "@react-native-clipboard/clipboard": ^1.16.3
     "@react-native-community/cli": 19.1.1
     "@react-native-community/cli-platform-android": 19.1.1
     "@react-native-community/cli-platform-ios": 19.1.1
@@ -3889,7 +3907,9 @@ __metadata:
     react-hook-form: ^7.53.0
     react-native: 0.80.2
     react-native-gesture-handler: ^2.28.0
+    react-native-permissions: ^5.4.4
     react-native-safe-area-context: ^5.6.1
+    react-native-vision-camera: ^4.7.3
     react-test-renderer: 19.1.0
     typescript: 5.0.4
     yup: ^1.4.0
@@ -8265,6 +8285,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-permissions@npm:^5.4.4":
+  version: 5.4.4
+  resolution: "react-native-permissions@npm:5.4.4"
+  peerDependencies:
+    react: ">=18.1.0"
+    react-native: ">=0.70.0"
+    react-native-windows: ">=0.70.0"
+  peerDependenciesMeta:
+    react-native-windows:
+      optional: true
+  checksum: 43deb38d03321c6b23c7f9f6e1561a629e3aff1e4be20e643ff85010f040b82d707a7db43179108a203663cd138da2f3b6d954f1b278f44ed85797ec49bbacb1
+  languageName: node
+  linkType: hard
+
 "react-native-safe-area-context@npm:^5.6.1":
   version: 5.6.2
   resolution: "react-native-safe-area-context@npm:5.6.2"
@@ -8272,6 +8306,26 @@ __metadata:
     react: "*"
     react-native: "*"
   checksum: 7b15cdd07df4f3650cf443fb322ee2d51b3ab45c652789cbea4cb48a8e6fd2b66e2be01e9f63e614ceaf28d9d228af681ca8857b2ed8dabe48f23964076d40c3
+  languageName: node
+  linkType: hard
+
+"react-native-vision-camera@npm:^4.7.3":
+  version: 4.7.3
+  resolution: "react-native-vision-camera@npm:4.7.3"
+  peerDependencies:
+    "@shopify/react-native-skia": "*"
+    react: "*"
+    react-native: "*"
+    react-native-reanimated: "*"
+    react-native-worklets-core: "*"
+  peerDependenciesMeta:
+    "@shopify/react-native-skia":
+      optional: true
+    react-native-reanimated:
+      optional: true
+    react-native-worklets-core:
+      optional: true
+  checksum: e3abe484e4303d4fa9088e546e846642f4be503180ed24eaf74fc9e11c667cee779c5a9de4f27999dccb830ee60760badc641ee869fc6015e7ab7bec0f494f6d
   languageName: node
   linkType: hard
 

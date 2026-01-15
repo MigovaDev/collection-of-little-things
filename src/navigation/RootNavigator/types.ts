@@ -6,6 +6,7 @@ export enum RootStackName {
   Themes = 'Themes',
   Languages = 'Languages',
   BubblesNavigator = 'BubblesNavigator',
+  QRScanner = 'QRScanner',
 }
 
 export type RootStackParamList = {
@@ -14,9 +15,15 @@ export type RootStackParamList = {
   [RootStackName.Themes]: undefined;
   [RootStackName.Languages]: undefined;
   [RootStackName.BubblesNavigator]: undefined;
+  [RootStackName.QRScanner]: undefined;
 };
 
 export type LandingScreenNavigationProp = StackScreenProps<
   RootStackParamList,
   RootStackName.Landing
+>;
+
+export type QRScannerScreenNavigationProp = StackScreenProps<
+  RootStackParamList,
+  RootStackName.QRScanner
 >;

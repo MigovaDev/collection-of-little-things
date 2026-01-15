@@ -1,40 +1,52 @@
 import React from 'react';
 
-import { FlatList, ListRenderItem, Text, View } from 'react-native';
+import {FlatList, ListRenderItemInfo, Text, View} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Button } from '@components/Button';
+import {TranslationKey} from '@constants/translations.ts';
 import { useTheme } from '@hooks/useTheme';
 import { useTranslation } from '@hooks/useTranslation';
 import { LandingScreenNavigationProp, RootStackName } from '@navigation/RootNavigator/types';
 
 import { styles } from './styles';
 
+type Action = {
+    title: TranslationKey,
+    routeName: RootStackName
+}
+
+const actions: Action[] = [
+    {
+        title: 'landing.goToBiometrics',
+        routeName: RootStackName.BiometricsNavigator,
+    },
+    {
+        title: 'landing.goToThemes',
+        routeName:  RootStackName.Themes,
+    },
+    {
+        title: 'landing.goToLanguages',
+        routeName: RootStackName.Languages,
+    },
+    {
+        title: 'landing.goToBubbles',
+        routeName: RootStackName.BubblesNavigator,
+    },
+    {
+        title: 'landing.goToQRScanner',
+        routeName: RootStackName.QRScanner,
+    },
+];
+
 export const LandingScreen = ({ navigation }: LandingScreenNavigationProp) => {
   const { colors } = useTheme();
   const { t } = useTranslation();
 
-  const actions = [
-      {
-        title: t('landing.goToBiometrics'),
-        onPress: () => navigation.navigate(RootStackName.BiometricsNavigator),
-      },
-      {
-        title: t('landing.goToThemes'),
-        onPress:  () => navigation.navigate(RootStackName.Themes),
-      },
-      {
-        title: t('landing.goToLanguages'),
-        onPress: () => navigation.navigate(RootStackName.Languages),
-    },
-    {
-      title: t('landing.goToBubbles'),
-      onPress: () => navigation.navigate(RootStackName.BubblesNavigator),
-      },
-  ];
+  const onActionPress = (routeName: RootStackName) => navigation.navigate(routeName)
 
-  const renderItem: ListRenderItem<(typeof actions)[number]> = ({ item }) => (
-    <Button title={item.title} onPress={item.onPress} />
+  const renderItem = ({ item }: ListRenderItemInfo<Action>) => (
+    <Button title={t(item.title)} onPress={() => onActionPress(item.routeName)}  />
   );
 
   return (
