@@ -29,33 +29,27 @@ export const QRScannerScreen = ({ navigation }: QRScannerScreenNavigationProp) =
     handleBack,
   } = useQRScannerScreen(navigation);
 
-  if (hasPermission === false || !device) {
-    return (
-      <SafeAreaView style={[styles.container, { backgroundColor: colors.background.dark }]}>
-        <View style={styles.errorContainer}>
-          <Text style={[styles.errorText, { color: colors.text.primary }]}>
-            {hasPermission === false
-              ? t('qrscanner.permissionDenied')
-              : t('qrscanner.cameraNotAvailable')}
-          </Text>
-          <Button
-            onPress={handleBack}
-            style={styles.backButton}
-            title={t('common.back')}
-            variant={ButtonVariant.Ghost}
-          />
-        </View>
-      </SafeAreaView>
-    );
-  }
+  if (!hasPermission || !device) {
+    const errorMessage = !device
+      ? t('qrscanner.cameraNotAvailable')
+      : hasPermission === false
+        ? t('qrscanner.permissionDenied')
+        : t('qrscanner.requestingPermission');
 
-  if (hasPermission === null) {
     return (
       <SafeAreaView style={[styles.container, { backgroundColor: colors.background.dark }]}>
         <View style={styles.errorContainer}>
           <Text style={[styles.errorText, { color: colors.text.primary }]}>
-            {t('qrscanner.requestingPermission')}
+            {errorMessage}
           </Text>
+          {(hasPermission === false || !device) && (
+            <Button
+              onPress={handleBack}
+              style={styles.backButton}
+              title={t('common.back')}
+              variant={ButtonVariant.Ghost}
+            />
+          )}
         </View>
       </SafeAreaView>
     );

@@ -23,14 +23,15 @@ export const useQRScannerScreen = (navigation: QRScannerScreenNavigationProp['na
       }
     },
   });
+  const checkPermission = async () => {
+    const granted = await requestPermission(
+      Platform.OS === 'ios' ? PERMISSIONS.IOS.CAMERA : PERMISSIONS.ANDROID.CAMERA,
+    );
+    setHasPermission(granted);
+  };
 
   useEffect(() => {
-    const checkPermission = async () => {
-      const granted = await requestPermission(
-        Platform.OS === 'ios' ? PERMISSIONS.IOS.CAMERA : PERMISSIONS.ANDROID.CAMERA,
-      );
-      setHasPermission(granted);
-    };
+   
     checkPermission();
   }, []);
 

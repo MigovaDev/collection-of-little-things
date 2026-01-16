@@ -1,6 +1,6 @@
 import { Theme, ThemeColors, themes } from '@constants/themes';
 
-type ThemeOption = {
+export type ThemeOption = {
   theme: Theme;
   labelKey: 'themes.dark' | 'themes.light' | 'themes.toxic';
   getBorderColor: (isSelected: boolean, themeColors: ThemeColors, currentColors: ThemeColors) => string;

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Text, TouchableOpacity, View } from 'react-native';
 
-import {Button} from '@components/Button';
+import { Button } from '@components/Button';
 import { Modal } from '@components/Modal';
 import { useToast } from '@components/Toast/ToastService';
 import { useTheme } from '@hooks/useTheme';
@@ -18,7 +18,7 @@ type QRResultModalProps = {
   onOpenLink: () => void;
 };
 
-const copyHitSlop = { top: 10, bottom: 10, left: 10, right: 10 }
+const hitSlop = { top: 10, bottom: 10, left: 10, right: 10 }
 
 export const QRResultModal= ({
   url,
@@ -60,7 +60,7 @@ export const QRResultModal= ({
             {url}
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={handleCopy} hitSlop={copyHitSlop}>
+        <TouchableOpacity onPress={handleCopy} hitSlop={hitSlop}>
           <Text style={[styles.copyIcon, { color: colors.text.primary }]}>⧉</Text>
         </TouchableOpacity>
       </View>
